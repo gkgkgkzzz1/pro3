@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE HTML>
 <!--
@@ -58,7 +60,7 @@
 							<P4 align = center><strong>필수 입력 사항</strong></P4>
 
 							<p></p>
-							<form action="index.html" method="GET">
+							<form action="login.jsp" method="POST">
 								<div class="form-group">
 									<label>아이디</label>
 									<input type="text" name="id" class="form-control">
@@ -77,7 +79,7 @@
 								</div>
 								<div class="form-group">
 									<label>E-MAIL</label>
-									<input type="text" name="mail" class="form-control">
+									<input type="text" name="email" class="form-control">
 								</div>
 								<p></p>
 								<div class="form-group text-right" align = center>
