@@ -4,11 +4,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <!--
-	Strongly Typed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+   Strongly Typed by HTML5 UP
+   html5up.net | @ajlkn
+   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
 <head>
 <title>Strongly Typed by HTML5 UP</title>
 <meta charset="utf-8" />
@@ -87,6 +86,21 @@ h2 {
 .one {
 	text-align: center;
 }
+
+.container {
+	margin: 0 auto;
+	max-width: 100%;
+	width: 70em;
+}
+/* 하단부 반응형 맞춤 */
+.row>.col-12-medium {
+	width: 40%;
+	margin: 0 auto;
+}
+
+#sidebar {
+	padding-top: 30px;
+}
 </style>
 <body class="homepage is-preload">
 
@@ -101,7 +115,7 @@ h2 {
 				<h1 id="logo">
 					<a href="index.html">Today Skin Weather</a>
 				</h1>
-				<p>당신의 피부를 안전하게 지켜주세요</p>
+				<p>당신의 피부를 안전하게 지켜주세요. 피부</p>
 
 				<!-- Nav -->
 				<nav id="nav">
@@ -145,7 +159,7 @@ h2 {
             <div class='cloud'>운량</div>
         </div>
         <div class='#'>미세먼지</div>
-				</section> -->
+            </section> -->
 				<section class='weather-container'>
 					<table>
 
@@ -179,20 +193,20 @@ h2 {
 								</td>
 								<!-- 최고/최저 기온 -->
 								<td>
-									<div class='max-temp'>최고기온</div>
-									<div class='min-temp'>최저기온</div>
+									<div class='max-temp'></div>
+									<div class='min-temp'></div>
 								</td>
 								<!-- 체감온도 -->
 								<td>
-									<div class='feels-like'>체감온도</div>
+									<div class='feels-like'></div>
 								</td>
 								<!-- 습도 -->
 								<td>
-									<div class='humidity'>습도</div>
+									<div class='humidity'></div>
 								</td>
 								<!-- 운량 -->
 								<td>
-									<div class='cloud'>운량</div>
+									<div class='cloud'></div>
 								</td>
 							</tr>
 						</tbody>
@@ -204,7 +218,7 @@ h2 {
 		</section>
 		<!-- Main -->
 		<section id="main">
-			<div class="container">
+			<div class="#">
 				<div class="row">
 
 					<!-- Content -->
@@ -217,14 +231,14 @@ h2 {
 									<a href="#"><strong>Guest</strong></a>님의
 								</h2>
 								<h2>
-									오늘의 피부날씨는?</a>
+									<a>오늘의 피부날씨는?</a>
 								</h2>
 							</header>
 							<!-- <a href="#" class="image featured"><img
-								src="images/pic04.jpg" alt="" /></a> -->
+                        src="images/pic04.jpg" alt="" /></a> -->
 							<!-- <ul class="divided">
-												<li></li>
-											</ul> -->
+                                    <li></li>
+                                 </ul> -->
 							<h3>현재</h3>
 							<p>피부 온도는 __ 하네요</p>
 							<p>피부 수분은 역시 __ 하니 알맞게 관리해주세요</p>
@@ -254,7 +268,7 @@ h2 {
 											</h3>
 										</header>
 										<a href="#" class="image featured"><img
-											src="images/수분크림.jpg" alt="" /></a>
+											src="images/water.jpg" alt="" /></a>
 										<p>세부설명</p>
 									</article>
 
@@ -269,7 +283,7 @@ h2 {
 											</h3>
 										</header>
 										<a href="#" class="image featured"><img
-											src="images/로션.jpg" alt="" /></a>
+											src="images/lotion.jpg" alt="" /></a>
 										<p>세부설명</p>
 									</article>
 
@@ -284,7 +298,7 @@ h2 {
 											</h3>
 										</header>
 										<a href="#" class="image featured"><img
-											src="images/썬크림.jpg" alt="" /></a>
+											src="images/sun.jpg" alt="" /></a>
 										<p>세부설명</p>
 									</article>
 
