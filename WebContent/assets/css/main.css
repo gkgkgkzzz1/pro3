@@ -75,6 +75,11 @@ input, select, textarea {
 	appearance: none;
 }
 
+.search {
+	border : 0;
+	width : 100%;	
+}
+
 /* Basic */
 
 	html {
@@ -1508,8 +1513,10 @@ input, select, textarea {
 		}
 
 		.image.featured {
-			display: block;
+			display: flex;
+			justify-content : center;
 			width: 100%;
+			background-color: floralwhite;
 			margin: 0 0 3.5em 0;
 		}
 
@@ -2471,12 +2478,12 @@ input, select, textarea {
 
 				#navPanel .link {
 					display: block;
-					color: #ddd;
+					color: whitesmoke;
 					text-decoration: none;
 					height: 60px;
 					line-height: 44px;
 					border: 0;
-					border-top: solid 1px #3c3c3c;
+					border-top: solid 2px #3c3c3c;
 					padding: 0 1em 0 1em;
 				}
 

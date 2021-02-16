@@ -58,7 +58,7 @@
 							<P></P>
 							<h2 align = center><strong>로 그 인</strong></h2>
 							<p></p>
-							<form action="index.html" method="GET">
+							<form action="LoginService" method="post">
 								<div class="form-group">
 									<label>아이디</label>
 									<input type="text" name="id" class="form-control">
@@ -74,7 +74,7 @@
 								</div>
 								<p></p>
 								<div class="form-group text-center">
-									<span class="text-muted">회원이 아니시면 회원가입해주세요. </span>   <a href="join.html"><u><strong>회원가입하기</strong></u></a>
+									<span class="text-muted">회원이 아니시면 회원가입해주세요. </span>   <a href="join.jsp"><u><strong>회원가입하기</strong></u></a>
 								</div>
 							</form>
 						</div>

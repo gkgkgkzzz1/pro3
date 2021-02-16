@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,7 +17,7 @@
 
         #header{
             position: absolute;
-            top: 50px;
+/*             top: 50px; */
             left: 50%;
             z-index: 999;
             color: white;
@@ -29,8 +31,8 @@
 
         #camera, #camera--view, #camera--sensor, #camera--output{
             position: fixed;
-            height: 100%;
-            width: 100%;
+            height: 30%;
+            width: 30%;
             object-fit: cover;
         }
 
@@ -77,7 +79,8 @@
         <!-- 기기의 카메라에 접근하여 영상을 페이지에 재생한다. -->
         <video id="camera--view" autoplay playsinline></video>
         
-        <img src="//:0" alt="" id="camera--output">
+        <img src="gorapaduk2.jpg" alt="" id="camera--output">
+        <!-- 고라파덕 부분에 카메라 이미지 넣어서 찍는거 조절하기... img 크기 조절도 해야해 -->
 
         <button id="camera--trigger">사진촬영</button>
 
@@ -113,6 +116,7 @@
             cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
             cameraOutput.src = cameraSensor.toDataURL("image/webp");
             cameraOutput.classList.add("taken");
+            
             console.log(cameraSensor.height);
         });
     

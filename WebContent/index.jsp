@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
 	Strongly Typed by HTML5 UP
@@ -10,6 +12,16 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<style>
+		#img1{
+			display : block;
+			width : 60%;
+			height : 40%;
+			
+		}
+	
+		</style>
 	</head>
 	<body class="homepage is-preload">
 		
@@ -21,26 +33,25 @@
 					<div class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">SKIN CARE</a></h1>
+							<h1 id="logo"><a href="index.html">Safe Your Skin</a></h1>
 							<p>당신의 피부를 안전하게 지켜주세요</p>
 
 						<!-- Nav -->
 						<nav id="nav">
 							<ul>
 								
-								<li><a class="icon solid fa-home" href="index.html"><span>HOME</span></a></li>
-								<li>
+								<li><a class="icon solid fa-home" href="index.jsp"><span>HOME</span></a></li>
+								
+								<li display = hidden>
 									<a href="#" class="icon fa-chart-bar"><span>회원가입/로그인</span></a>
 									<ul>
-										<li><a href="#">회원가입</a></li>
-										<li><a href="#">로그인</a></li>
-										<li><a href="#">나의 사용목록 추가</a></li>
-										
+										<li><a href="join.jsp">회원가입</a></li>
+										<li><a href="login.jsp">로그인</a></li>
 									</ul>
 								</li>
 								<li><a class="icon solid fa-cog" href="left-sidebar.html"><span>OCR 이용 이미지 인식</span></a></li>
-								<li><a class="icon solid fa-retweet" href="right-sidebar.html"><span>날씨별 화장품 추천</span></a></li>
-								<li><a class="icon solid fa-sitemap" href="no-sidebar.html"><span>나의 사용목록 추가</span></a></li>
+								<li><a class="icon solid fa-retweet" href="weather.jsp"><span>날씨별 화장품 추천</span></a></li>
+								<li><a class="icon solid fa-sitemap" href="mydata.jsp"><span>나의 사용목록 추가</span></a></li>
 							</ul>
 						</nav>
 
@@ -51,14 +62,14 @@
 				<section id="features">
 					<div class="container">
 						<header>
-							<h2>여기에 날씨별 추천, 카메라 이미지 인식 넣는겁니다.</h2>
+							<h2>성분 분석과 날씨추천을 통해 당신의 피부를 지켜요!</h2>
 						</header>
 						<div class="row aln-center">
 							<div class="col-4 col-6-medium col-12-small">
 
 								<!-- Feature -->
 									<section>
-										<a href="weather.html" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+										<a href="weather.jsp" class="image featured"><img id = img1 src="./images/weather.png" alt="" /></a>
 										<header>
 											<h3>온,습도 구분 바르는 정도 추천</h3>
 										</header>
@@ -72,7 +83,7 @@
 
 								<!-- Feature -->
 									<section>
-										<a href="left-sidebar.html" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+										<a href="left-sidebar.html" class="image featured"><img id = img1 src="./images/cam.png" alt="" /></a>
 										<header>
 											<h3>이미지로 성분 확인</h3>
 										</header>
@@ -95,8 +106,8 @@
 			<!-- Banner -->
 				<section id="banner">
 					<div class="container">
-						<p>Use this space for <strong>profound thoughts</strong>.<br />
-						Or an enormous ad. Whatever.</p>
+						<p>당신의 피부를 지키기 위해 </p>
+						<p>알러지 문의를 해주세요! </p>
 					</div>
 				</section>
 

@@ -10,11 +10,68 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #header1{
+            position: sticky;
+            z-index: 999;
+            color: white;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        } 
+
+        #header > p {
+            font-size: 0.9em;
+        }
+
+        #camera, #camera--view, #camera--sensor, #camera--output{
+            position: sticky;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        #camera--view, #camera--sensor, #camera--output{
+            transform: scaleX(-1);
+            filter: FlipH;
+        }
+
+        #camera--trigger{
+            width: 180px;
+            color: white;
+            background-color: black;
+            font-size: 16px;
+            border-radius: 30px;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0, 0.2);
+            position: sticky;
+            bottom: 30px;
+            left: calc(50% - 90px);
+        }
+
+        .taken {
+            height: 280px!important;
+            width: 560px!important;
+            border: solid 2px rgb(121, 200, 253);
+        }
+    </style>
+		
+		
 	</head>
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
+			
 				<section id="header">
 					<div class="container">
 
@@ -22,36 +79,38 @@
 							<h1 id="logo"><a href="index.html"> Search Ingredient</a></h1>
 							<p>ocr based on Character Recognition</p>
 
+						<!-- Logo -->
+										
 						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li><a class="icon solid fa-home" href="index.html"><span>Introduction</span></a></li>
-									<li>
-										<a href="#" class="icon fa-chart-bar"><span>Dropdown</span></a>
-										<ul>
-											<li><a href="#">Lorem ipsum dolor</a></li>
-											<li><a href="#">Magna phasellus</a></li>
-											<li><a href="#">Etiam dolore nisl</a></li>
-											<li>
-												<a href="#">Phasellus consequat</a>
-												<ul>
-													<li><a href="#">Magna phasellus</a></li>
-													<li><a href="#">Etiam dolore nisl</a></li>
-													<li><a href="#">Phasellus consequat</a></li>
-												</ul>
-											</li>
-											<li><a href="#">Veroeros feugiat</a></li>
-										</ul>
-									</li>
-									<li><a class="icon solid fa-cog" href="left-sidebar.html"><span>Left Sidebar</span></a></li>
-									<li><a class="icon solid fa-retweet" href="right-sidebar.html"><span>Right Sidebar</span></a></li>
-									<li><a class="icon solid fa-sitemap" href="no-sidebar.html"><span>No Sidebar</span></a></li>
-								</ul>
-							</nav>
+						
+						<nav id="nav">
+							<ul>
+								
+								<li><a class="icon solid fa-home" href="index.jsp"><span>HOME</span></a></li>
+								<li>
+									<a href="#" class="icon fa-chart-bar"><span>회원가입/로그인</span></a>
+									<ul>
+										<li><a href="join.jsp">회원가입</a></li>
+										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="mydata.jsp">나의 사용목록 추가</a></li>
+										
+									</ul>
+								</li>
+								<li><a class="icon solid fa-cog" href="left-sidebar.html"><span>OCR 이용 이미지 인식</span></a></li>
+								<li><a class="icon solid fa-retweet" href="weather.jsp"><span>날씨별 화장품 추천</span></a></li>
+								<li><a class="icon solid fa-sitemap" href="mydata.jsp"><span>나의 사용목록 추가</span></a></li>
+							</ul>
+						</nav>
+						
+						<!-- Nav -->
+						
+																						
+						
+						
 
 					</div>
 				</section>
-
+			<!-- Header -->
 			<!-- Main -->
 				<section id="main">
 					<div class="container">
@@ -149,22 +208,46 @@
 
 								</div>
 
+
+
+
+
+
 							<!-- Content -->
 								<div id="content" class="col-8 col-12-medium imp-medium">
 
 									<!-- Post -->
 										<article class="box post">
-											<header>
-												<h2>Behold! This is the <strong>left sidebar</strong> layout<br />
-												with a sidebar on the left!</h2>
+											<header1 align = "center">
+												<h2 >카메라를 이용해 성분을 분석해주세요
+													카메라 나오는 위치랑 레이아웃 .... ㅠㅠ
+												</h2>
 											</header>
+											
 											<div>
 
-											
-											<span class="image featured"><img src="images/pic04.jpg" alt="" />
-										
+    <main id="camera" >
+        
+        <canvas id="camera--sensor"></canvas>
+
+        <!-- 기기의 카메라에 접근하여 영상을 페이지에 재생한다. -->
+        <video id="camera--view" autoplay playsinline></video>
+        
+        <img src="./images/cam.png" alt="" id="camera--output">
+        <!-- 고라파덕 부분에 카메라 이미지 넣어서 찍는거 조절하기... img 크기 조절도 해야해 -->
+
+        
+
+    </main>
+    
+    
+    
+    
+    
 										</div>
+											<button id="camera--trigger">사진촬영</button>
 											
+											<p> </p>
 											</span>
 											<h3>Left is the opposite of right</h3>
 											<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
@@ -313,6 +396,42 @@
 				</section>
 
 		</div>
+		    <script>
+
+        let constraints = { video: { facingMode: "user"}, audio: false};
+        const cameraView = document.querySelector("#camera--view");
+        const cameraOutput = document.querySelector("#camera--output");
+        const cameraSensor = document.querySelector("#camera--sensor");
+        const cameraTrigger = document.querySelector("#camera--trigger");
+
+
+        function cameraStart(){
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then(function(stream){
+                    track = stream.getTracks()[0];
+                    cameraView.srcObject = stream;
+
+                })
+                .catch(function(error){
+                    console.error("카메라에 문제가 있습니다.", error);
+                })
+        }
+
+        //촬영 버튼 클릭 리스너
+        cameraTrigger.addEventListener("click", function(){
+            
+            cameraSensor.width = cameraView.videoWidth; //640으로 정해져서 나오네?
+            cameraSensor.height = cameraView.videoHeight;
+            cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+            cameraOutput.src = cameraSensor.toDataURL("image/webp");
+            cameraOutput.classList.add("taken");
+            
+            console.log(cameraSensor.height);
+        });
+    
+        // 페이지가 로드되면 함수 실행
+        window.addEventListener("load", cameraStart, false);
+    </script>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

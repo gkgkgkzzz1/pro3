@@ -60,7 +60,7 @@
 							<P4 align = center><strong>필수 입력 사항</strong></P4>
 
 							<p></p>
-							<form action="login.jsp" method="POST">
+							<form action="JoinService" method="post">
 								<div class="form-group">
 									<label>아이디</label>
 									<input type="text" name="id" class="form-control">
@@ -87,7 +87,7 @@
 								</div>
 								<p></p>
 								<div class="form-group text-center">
-									<span class="text-muted">이미 가입이 되어있으시다면     </span>   <a href="login.html"><u><strong>     로그인하기</strong></u></a>
+									<span class="text-muted">이미 가입이 되어있으시다면     </span>   <a href="login.jsp"><u><strong>     로그인하기</strong></u></a>
 								</div>
 							</form>
 						</div>

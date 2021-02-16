@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
 	Strongly Typed by HTML5 UP
@@ -143,70 +145,51 @@
 								<section>
 									<form method="post" action="#">
 										<div class="row gtr-50">
-											<div class="col-6 col-12-small">
-												<input name="search" placeholder="search" type="text" />
-											</div>
-											
-											
+										
+										
+										<div class = "search">
 										
 											
-											<div class="col-12">
-												<a href="#" class="form-button-submit button icon solid fa-envelope">Search</a>
-											</div>
+											<input type = "text" list = "search">
+											<datalist id = "search">
 											
-												<div class="col-6 col-12-small">
-												<input name="email" placeholder="Email" type="text" />
-											</div>
+											<!-- 화장품 검색 탭 if문, for 문 돌려서 찾기 -->
+											
+												<option>진식 </option>
+												<option>요셉 </option>
+												<option>누리 </option>
+												<option>덕운 </option>
+												<option>미림 </option>
+												<option>수지 </option>
+																						
+											
+											
+											</datalist>
+										
+									
+										</div>
+											<br><br>
+											<p> <strong>나의 화장품 이력</strong> </p>																				
+											
+											
 											
 											<div class="col-12">
 												<textarea name="message" placeholder="Message"></textarea>
 											</div>
+											
+											
+											
 											<div class="col-12">
 												<a href="#" class="form-button-submit button icon solid fa-envelope">Send Message</a>
 											</div>
+
 										</div>
+
 									</form>
 								</section>
 							</div>
 							<div class="col-6 col-12-medium">
-								<section>
-									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur
-									leo nibh, rutrum eu malesuada.</p>
-									<div class="row">
-										<div class="col-6 col-12-small">
-											<ul class="icons">
-												<li class="icon solid fa-home">
-													1234 Somewhere Road<br />
-													Nashville, TN 00000<br />
-													USA
-												</li>
-												<li class="icon solid fa-phone">
-													(000) 000-0000
-												</li>
-												<li class="icon solid fa-envelope">
-													<a href="#">info@untitled.tld</a>
-												</li>
-											</ul>
-										</div>
-										<div class="col-6 col-12-small">
-											<ul class="icons">
-												<li class="icon brands fa-twitter">
-													<a href="#">@untitled</a>
-												</li>
-												<li class="icon brands fa-instagram">
-													<a href="#">instagram.com/untitled</a>
-												</li>
-												<li class="icon brands fa-dribbble">
-													<a href="#">dribbble.com/untitled</a>
-												</li>
-												<li class="icon brands fa-facebook-f">
-													<a href="#">facebook.com/untitled</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</section>
+								
 							</div>
 						</div>
 					</div>
