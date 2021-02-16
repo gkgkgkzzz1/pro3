@@ -97,21 +97,22 @@ public class MemHistoryDAO {
 	
 	// 화장품 조회 함수
 	public ArrayList<MemHistoryDTO> CosSelect(String proName) {
-		String company = null;
-		String path = null;
-		MemHistoryDTO dto = new MemHistoryDTO(company, proName, path);
+
 		ArrayList<MemHistoryDTO> array = new ArrayList<MemHistoryDTO>();
 		conn();
 		try {
-			String sql = "SELECT company,pro_name,path FROM cosmetics WHERE pro_name LIKE ? order by pro_name";
+			String sql = "SELECT DISTINCT (pro_name),company, path FROM cosmetics WHERE pro_name LIKE ? order by pro_name";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%"+proName+"%");
 			rs = psmt.executeQuery();
 			while(rs.next()) {
-				dto.setCompany(rs.getString("company"));
-				dto.setProName(rs.getString("pro_name"));
-				dto.setPath(rs.getString("path"));
+				String company = rs.getString("company");
+				String pro_name = rs.getString("pro_name");
+				String path = rs.getString("path");
+				
+				MemHistoryDTO dto = new MemHistoryDTO(company, pro_name, path);
 				array.add(dto);
+				
 			}
 			
 		} catch (SQLException e) {
@@ -119,6 +120,8 @@ public class MemHistoryDAO {
 		} finally {
 			close();
 		}
+		
+		
 		
 		return array;
 	}
