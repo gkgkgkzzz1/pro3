@@ -1,0 +1,126 @@
+package com.model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class MemHistoryDAO {
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
+	
+	public void conn() {
+		try {
+			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String db_id = "hr";
+			String db_pw = "hr";
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			conn = DriverManager.getConnection(db_url, db_id, db_pw);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void close() {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (psmt != null) {
+				psmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// 회원 이력 insert 함수
+	public int HisInsert(String id, MemHistoryDTO dto) {
+		int cnt = 0;
+		
+		conn();
+		try {
+			String sql = "INSERT INTO mem_history VALUES (?,?,?,sysdate)";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, dto.getProName());
+			psmt.setString(1, dto.getRating());
+			cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return cnt;
+	}
+	
+	// 회원 이력 조회 함수
+	public ArrayList<MemHistoryDTO> HisSelect (String id) {
+		String proName = null;
+		String rating = null;
+		MemHistoryDTO dto = new MemHistoryDTO(proName, rating);
+		ArrayList<MemHistoryDTO> array = new ArrayList<MemHistoryDTO>();
+		conn();
+		try {
+			String sql = "SELECT pro_name,rating FROM mem_history WHERE id = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				dto.setProName(rs.getString("pro_name"));
+				dto.setRating(rs.getString("rating"));
+				array.add(dto);
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return array;
+		
+	}
+	
+	// 화장품 조회 함수
+	public ArrayList<MemHistoryDTO> CosSelect(String proName) {
+		String company = null;
+		String path = null;
+		MemHistoryDTO dto = new MemHistoryDTO(company, proName, path);
+		ArrayList<MemHistoryDTO> array = new ArrayList<MemHistoryDTO>();
+		conn();
+		try {
+			String sql = "SELECT company,pro_name,path FROM cosmetics WHERE pro_name LIKE ? order by pro_name";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, "%"+proName+"%");
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				dto.setCompany(rs.getString("company"));
+				dto.setProName(rs.getString("pro_name"));
+				dto.setPath(rs.getString("path"));
+				array.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return array;
+	}
+
+}
