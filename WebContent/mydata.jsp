@@ -31,7 +31,7 @@ function searchFunction(){
 				let proName = res.cosmetics[i].proname;
 				let img = res.cosmetics[i].img;
 				
-				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'>좋음</button>\t<button class='BAD' id ='"+proName+"'>나쁨</button></td></tr>");
+				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'><img src = './images/up.png'></button>\t<button class='BAD' id ='"+proName+"'>나쁨</button></td></tr>");
 			}
 			
 		    $("td > button").click(function(){
