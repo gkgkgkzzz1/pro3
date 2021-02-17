@@ -1516,7 +1516,7 @@ input, select, textarea {
 			display: flex;
 			justify-content : center;
 			width: 100%;
-			background-color: floralwhite;
+			background-color: ghostwhite;
 			margin: 0 0 3.5em 0;
 		}
 
