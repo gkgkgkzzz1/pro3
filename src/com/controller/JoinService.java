@@ -15,14 +15,14 @@ import com.model.memberDTO;
 public class JoinService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
 		
-		
+		//kljnjk
 		System.out.println(id);
 		
 		memberDTO dto = new memberDTO(id, pw, name, phone, email);

@@ -25,27 +25,31 @@ function searchFunction(){
 				let proName = res.cosmetics[i].proname;
 				let img = res.cosmetics[i].img;
 				
-				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td><img class='imgs' src='"+img+".jpg'></td><td><button class='good' id ='"+proName+"'>좋음</button>\t<button class='bad' id ='"+proName+"'>나쁨</button></td></tr>");
+				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td><img class='imgs' src='"+img+".jpg'></td><td><button class='GOOD' id ='"+proName+"'>좋음</button>\t<button class='BAD' id ='"+proName+"'>나쁨</button></td></tr>");
 			}
 			
-		    $("button").click(function(){
-		    	alert("hello");
+		    $("td > button").click(function(){
 		    	var id = $(this).attr('id');
 		    	var rat = $(this).attr('class');
-		    	alert("상품명"+ id);
-		    	alert("평가"+rat);
 		    	$.ajax({
 		    		url : "memHisInsert.jsp",
 		    		type : "GET",
 		    		data : {proName : id, rating : rat},
 		    		dataType : "json",
 		    		success : function (result){
-						for(let j = 0; j< res.cosmetics.length; j++){
-							let proName = res.cosmetics[j].proname;
-							let rating = res.cosmetics[j].rating;
+/* 		    			alert(result);
+ */		    			$('#ajaxTable2').empty();
+						for(let j = 0; j< result.cosmetics.length; j++){
+							let proName = result.cosmetics[j].proname;
+							let rating = result.cosmetics[j].rating;
 							
-		    				$('#ajaxTable2').append("<tr><td>"+proname+"</td><td>"+rating+"</td></tr>");
+		    				$('#ajaxTable2').append("<tr><td>"+proName+"</td><td>"+rating+"</td></tr>");
 						}
+		    		},
+		    		error : function(a,b,c){
+		    			alert("fail")
+		    			alert(b)
+		    			alert(c)
 		    		}
 		    	})
 		    });
@@ -62,27 +66,25 @@ function searchFunction(){
 </script>
 <style type="text/css">
 .imgs{
-width: 250px;
-height: 250px;
+width:10rem;
+}
+
+.container{
+	display: flex;
 }
 </style>
+
 </head>
 <body>
 
-<% memberDTO member = (memberDTO)session.getAttribute("list");
-String id = member.getId(); 
-System.out.println(id);%>
-	<div class="container">
 		<div class="form-group row pull-right">
-			<div class="col xs-8">
 				<input class="form-control"  name = "proName" id="proName"type="text" size="20">
-			</div>
-			<div class="col xs-2">
 			<% request.setCharacterEncoding("EUC-KR"); %>
 				<button class="btn btn-primary" onclick="searchFunction();" type="button">검색</button>
-			</div>
 		</div>
-		<br>
+	<div class="container">
+		<div class = "box"> 
+		<h1>제품 검색</h1>
 		<table class="selectTable" style="text-align: center; border: 1px solid">
 			<thead>
 				<tr>
@@ -96,10 +98,9 @@ System.out.println(id);%>
 				
 			</tbody>
 		</table>
-		
-		
-		<br><br><br><br><br>
-		<h1>회원님의 평가 목록</h1>
+		</div>
+		<div class = "box">
+		<h1>평가 목록</h1>
 		<table class = "memTable" style="text-align: center; border: 1px solid">
 			<thead>
 				<tr>
@@ -111,6 +112,7 @@ System.out.println(id);%>
 			
 			</tbody>
 		</table>
+		</div>
 	</div>
 
 </body>

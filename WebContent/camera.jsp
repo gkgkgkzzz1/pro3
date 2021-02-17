@@ -79,7 +79,7 @@
         <!-- 기기의 카메라에 접근하여 영상을 페이지에 재생한다. -->
         <video id="camera--view" autoplay playsinline></video>
         
-        <img src="gorapaduk2.jpg" alt="" id="camera--output">
+        <img src="cam.png" alt="" id="camera--output">
         <!-- 고라파덕 부분에 카메라 이미지 넣어서 찍는거 조절하기... img 크기 조절도 해야해 -->
 
         <button id="camera--trigger">사진촬영</button>
