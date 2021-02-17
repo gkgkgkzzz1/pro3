@@ -15,7 +15,6 @@
       <script src="assets/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 function searchFunction(){
-<<<<<<< HEAD
    var name = document.getElementById("proName").value;
    $.ajax({
       url: "cosSelect.jsp",
@@ -68,7 +67,6 @@ function searchFunction(){
       }
    })
    
-=======
 	var name = document.getElementById("proName").value;
 	$.ajax({
 		url: "cosSelect.jsp",
@@ -121,7 +119,6 @@ function searchFunction(){
 		}
 	})
 	
->>>>>>> branch 'master' of https://github.com/gkgkgkzzz1/pro3.git
 }
 
 </script>
