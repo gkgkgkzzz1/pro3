@@ -27,16 +27,13 @@ public class UV extends HttpServlet {
       
       weatherDAO weatherdao = new weatherDAO();
       
-      ArrayList<String> uvlist =   weatherdao.uvtoday();
+		/* ArrayList<String> uvlist = weatherdao.uvtoday(); */
       
-      PrintWriter out = response.getWriter();
-      JSONObject test = new JSONObject();
-      test.put("weather", uvlist.get(1));
-      out.print(test);
+		/* PrintWriter out = response.getWriter(); */
       
-      System.out.println("uvlist: " + uvlist);
+		/* System.out.println("uvlist: " + uvlist); */
       
-      session.setAttribute("uv", uvlist);
+		/* session.setAttribute("uv", uvlist); */
       
       response.sendRedirect("aaa.jsp");
    }

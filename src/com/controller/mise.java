@@ -29,8 +29,12 @@ public class mise extends HttpServlet {
       weatherDAO weatherdao = new weatherDAO();
       
       ArrayList<String> miselist = weatherdao.mise();
+      ArrayList<String> uvlist =   weatherdao.uvtoday();
       
       System.out.println("miselist: " + miselist);
+      System.out.println("uvlist: " + uvlist);
+      
+      session.setAttribute("uv", uvlist);
       
       session.setAttribute("mise", miselist);
       
