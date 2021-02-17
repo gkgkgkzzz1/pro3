@@ -15,6 +15,7 @@
       <script src="assets/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 function searchFunction(){
+<<<<<<< HEAD
    var name = document.getElementById("proName").value;
    $.ajax({
       url: "cosSelect.jsp",
@@ -67,6 +68,60 @@ function searchFunction(){
       }
    })
    
+=======
+	var name = document.getElementById("proName").value;
+	$.ajax({
+		url: "cosSelect.jsp",
+		type : "GET",
+		data : {proName : name},
+		dataType : "json",
+		success : function (res) {
+			/* alert(res)
+			console.log(res) */
+			$('#ajaxTable').empty();
+			for(let i = 0; i < res.cosmetics.length; i++){
+							
+				let company = res.cosmetics[i].company;
+				let proName = res.cosmetics[i].proname;
+				let img = res.cosmetics[i].img;
+				
+				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td ><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'><img src='./images/up.png'></button>\t<button class='BAD' id ='"+proName+"'><img src ='./images/down.png' style='padding-top:13px;'></button></td></tr>");
+			}
+			
+		    $("td > button").click(function(){
+		    	var id = $(this).attr('id');
+		    	var rat = $(this).attr('class');
+		    	$.ajax({
+		    		url : "memHisInsert.jsp",
+		    		type : "GET",
+		    		data : {proName : id, rating : rat},
+		    		dataType : "json",
+		    		success : function (result){
+/* 		    			alert(result); 바꿔
+ */		    			$('#ajaxTable2').empty();
+						for(let j = 0; j< result.cosmetics.length; j++){
+							let proName = result.cosmetics[j].proname;
+							let rating = result.cosmetics[j].rating;
+							
+		    				$('#ajaxTable2').append("<tr><td>"+proName+"</td><td>"+rating+"</td></tr>");
+						}
+		    		},
+		    		error : function(a,b,c){
+		    			alert("fail")
+		    			alert(b)
+		    			alert(c)
+		    		}
+		    	})
+		    });
+		},
+		error : function(a,b,c){
+			alert("fail")
+			alert(b)
+			alert(c)
+		}
+	})
+	
+>>>>>>> branch 'master' of https://github.com/gkgkgkzzz1/pro3.git
 }
 
 </script>
