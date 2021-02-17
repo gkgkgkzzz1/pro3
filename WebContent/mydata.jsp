@@ -83,6 +83,7 @@ width:10rem;
 td {
 	vertical-align : middle;
 	justify-content: center;
+	color: black;
 }
 button img {
 	width: 30px;
@@ -116,6 +117,13 @@ button{
 }
 .GOOD:hover {
 	background: #4472C4;
+}
+.BAD:hover {
+	background: #fd887a;
+}
+table thead {
+	background: #e5e5e5;
+	color: black;
 }
 
 
@@ -176,7 +184,7 @@ button{
 							</div>
 	<div class="nuribox">
 		<div class = "box"> 
-		<h1>제품 검색</h1>
+		<br>
 		<table class="selectTable" style="text-align: center; border: 1px solid">
 			<thead>
 				<tr>
@@ -192,7 +200,6 @@ button{
 		</table>
 		</div>
 		<div class = "nuribox">
-		<h1>평가 목록</h1>
 		<table class = "memTable" style="text-align: center; border: 1px solid">
 			<thead>
 				<tr>
