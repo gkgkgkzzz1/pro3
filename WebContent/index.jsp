@@ -16,11 +16,12 @@
 		<style>
 		#img1{
 			display : block;
-			width : 60%;
-			height : 40%;
+			width : 200px;
+			height : 200px;
 			
 		}
 	
+
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -30,7 +31,7 @@
 			<!-- Header -->
 				<section id="header">
 					
-					<div class="container">
+					<div class="container" style = "padding-top: 100px; padding-bottom: 100px;">
 
 						<!-- Logo -->
 							<h1 id="logo"><a href="index.html">Safe Your Skin</a></h1>
@@ -83,7 +84,7 @@
 
 								<!-- Feature -->
 									<section>
-										<a href="left-sidebar.html" class="image featured"><img id = img1 src="./images/cam.png" alt="" /></a>
+										<a href="camRecog.jsp" class="image featured"><img id = img1 src="./images/cam.png" alt="" /></a>
 										<header>
 											<h3>이미지로 성분 확인</h3>
 										</header>
