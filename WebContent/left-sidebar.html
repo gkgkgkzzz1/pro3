@@ -267,9 +267,10 @@
 										</div>
 										<div id = "buttons">
 										 
-											<form action="http://118.40.82.69:9000/imgUp" method="post">
-												<input type="hidden" id="inputUrl" value="">
-												<button id="sendUrl" onclick="imgSend()">분석하기</button>
+											<form action="http://118.40.82.69:9000/imgUp" method="post" enctype="multipart/form-data">
+												<!-- <input type="text" name='r' value="hello"> 테스트 용 -->
+												<input type="hidden" name="inputUrl" id="inputUrl" value="" >
+												<input type="submit" id="sendUrl" value="분석하기">
 											</form>
 											<button id="camera--trigger">사진촬영</button>
 										</div>

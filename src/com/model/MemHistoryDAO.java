@@ -95,7 +95,6 @@ public class MemHistoryDAO {
 	
 	// 화장품 조회 함수
 	public ArrayList<MemHistoryDTO> CosSelect(String proName) {
-
 		ArrayList<MemHistoryDTO> array = new ArrayList<MemHistoryDTO>();
 		conn();
 		try {
