@@ -111,6 +111,14 @@ tr > td:nth-child(4){
     justify-content: center;
 }
 
+button{
+	background: white;
+}
+.GOOD:hover {
+	background: #4472C4;
+}
+
+
 
 </style>
 	</head>
