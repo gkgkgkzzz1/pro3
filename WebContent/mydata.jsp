@@ -31,7 +31,7 @@ function searchFunction(){
 				let proName = res.cosmetics[i].proname;
 				let img = res.cosmetics[i].img;
 				
-				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'>좋음</button>\t<button class='BAD' id ='"+proName+"'>나쁨</button></td></tr>");
+				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td ><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'><img src='./images/up.png'></button>\t<button class='BAD' id ='"+proName+"'><img src ='./images/down.png' style='padding-top:13px;'></button></td></tr>");
 			}
 			
 		    $("td > button").click(function(){
@@ -77,10 +77,38 @@ width:10rem;
 .GOOD, .BAD {
 	padding-left: 20px;
 	padding-right: 20px;
+	border-radius: 50px;
 }
 
 td {
 	vertical-align : middle;
+	justify-content: center;
+}
+button img {
+	width: 30px;
+}
+tr > td:nth-child(4){
+	justify-content: space-around; 
+}
+
+#proName {
+	width: 250px;
+    height: 40px;
+}
+#proNameBtn{
+	border: 1px soild black;
+	padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    height: 40px;
+    width: 60px;
+}
+#searchGroup{
+	margin-left: 0px;
+    margin-top: 0px;
+    padding-left: 20px;
+    justify-content: center;
 }
 
 
@@ -131,19 +159,14 @@ td {
 				<section id="main">
 					<div class="container">
 						<div id="content">
-
-							<div class="form-group row pull-right" style="
-    margin-left: 0px;
-    margin-top: 0px;
-    padding-left: 20px;
-">
-				<span style="padding-top: 0px; padding-left: 0px;">
-				<input class="form-control"  name = "proName" id="proName" type="text" size="20"></span>
-			<% request.setCharacterEncoding("EUC-KR"); %>
-				<span style="padding-top: 0px; padding-left: 0px;">
-				<button class="btn btn-primary" onclick="searchFunction();" type="button"style="text-align = center;padding-top: 0px;padding-left: 0px;">검색</button></span>
-		</div>
-	<div class="container">
+							<div class="form-group row pull-right" id="searchGroup" >
+								<span style="padding-top: 0px; padding-left: 0px;">
+								<input class="form-control"  name = "proName" id="proName" onkeyup="searchFunction()" type="text" size="20"></span>
+								<% request.setCharacterEncoding("EUC-KR"); %>
+								<span style="padding-top: 0px; padding-left: 0px;">
+								<button class="btn btn-primary" id="proNameBtn" onclick="searchFunction();" type="button"style="text-align = center;padding-top: 0px;padding-left: 0px;"><img src="./images/search.png"></button></span>
+							</div>
+	<div class="nuribox">
 		<div class = "box"> 
 		<h1>제품 검색</h1>
 		<table class="selectTable" style="text-align: center; border: 1px solid">
@@ -160,7 +183,7 @@ td {
 			</tbody>
 		</table>
 		</div>
-		<div class = "box">
+		<div class = "nuribox">
 		<h1>평가 목록</h1>
 		<table class = "memTable" style="text-align: center; border: 1px solid">
 			<thead>
