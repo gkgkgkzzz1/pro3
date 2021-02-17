@@ -59,9 +59,9 @@ function loadWeather(data) {
 
     location.append(data.name);
     /*currentTemp.append(`${data.main.temp}도`);*/
-    feelsLike.append(`최고:${data.main.feels_like}도`);
-    maxTemp.append(`최고:${data.main.temp_max}도`);
-    minTemp.append(`최저:${data.main.temp_min}도`);
+    feelsLike.append(`최감온도:${data.main.feels_like}도`);
+    maxTemp.append(`최고온도:${data.main.temp_max}도`);
+    minTemp.append(`최저온도:${data.main.temp_min}도`);
     humidity.append(`습도: ${data.main.humidity}%`);
     cloud.append(`구름양: ${data.clouds.all}%`)
     icon.innerHTML = `<img src='http://openweathermap.org/img/wn/${weatherIcon}.png'>`
