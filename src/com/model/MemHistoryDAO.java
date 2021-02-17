@@ -53,7 +53,7 @@ public class MemHistoryDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, dto.getProName());
-			psmt.setString(1, dto.getRating());
+			psmt.setString(3, dto.getRating());
 			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -67,9 +67,6 @@ public class MemHistoryDAO {
 	
 	// 회원 이력 조회 함수
 	public ArrayList<MemHistoryDTO> HisSelect (String id) {
-		String proName = null;
-		String rating = null;
-		MemHistoryDTO dto = new MemHistoryDTO(proName, rating);
 		ArrayList<MemHistoryDTO> array = new ArrayList<MemHistoryDTO>();
 		conn();
 		try {
@@ -80,8 +77,9 @@ public class MemHistoryDAO {
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				dto.setProName(rs.getString("pro_name"));
-				dto.setRating(rs.getString("rating"));
+				String proName = rs.getString("pro_name");
+				String rating = rs.getString("rating");
+				MemHistoryDTO dto = new MemHistoryDTO(proName, rating);
 				array.add(dto);
 			}
 		

@@ -12,6 +12,79 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="assets/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+function searchFunction(){
+	var name = document.getElementById("proName").value;
+	$.ajax({
+		url: "cosSelect.jsp",
+		type : "GET",
+		data : {proName : name},
+		dataType : "json",
+		success : function (res) {
+			/* alert(res)
+			console.log(res) */
+			$('#ajaxTable').empty();
+			for(let i = 0; i < res.cosmetics.length; i++){
+							
+				let company = res.cosmetics[i].company;
+				let proName = res.cosmetics[i].proname;
+				let img = res.cosmetics[i].img;
+				
+				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'>좋음</button>\t<button class='BAD' id ='"+proName+"'>나쁨</button></td></tr>");
+			}
+			
+		    $("td > button").click(function(){
+		    	var id = $(this).attr('id');
+		    	var rat = $(this).attr('class');
+		    	$.ajax({
+		    		url : "memHisInsert.jsp",
+		    		type : "GET",
+		    		data : {proName : id, rating : rat},
+		    		dataType : "json",
+		    		success : function (result){
+/* 		    			alert(result);
+ */		    			$('#ajaxTable2').empty();
+						for(let j = 0; j< result.cosmetics.length; j++){
+							let proName = result.cosmetics[j].proname;
+							let rating = result.cosmetics[j].rating;
+							
+		    				$('#ajaxTable2').append("<tr><td>"+proName+"</td><td>"+rating+"</td></tr>");
+						}
+		    		},
+		    		error : function(a,b,c){
+		    			alert("fail")
+		    			alert(b)
+		    			alert(c)
+		    		}
+		    	})
+		    });
+		},
+		error : function(a,b,c){
+			alert("fail")
+			alert(b)
+			alert(c)
+		}
+	})
+	
+}
+
+</script>
+<style type="text/css">
+.imgs{
+width:10rem;
+}
+.GOOD, .BAD {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+td {
+	vertical-align : middle;
+}
+
+
+</style>
 	</head>
 	<body class="no-sidebar is-preload">
 		<div id="page-wrapper">
@@ -59,76 +132,49 @@
 					<div class="container">
 						<div id="content">
 
-							<!-- Post -->
-								<article class="box post">
-									<header>
-										<h2>Behold! This is the <strong>no sidebar</strong> layout<br />
-										with no sidebar at all!</h2>
-									</header>
-									<span class="image featured"><img src="images/pic04.jpg" alt="" /></span>
-									<h3>And yeah, that's basically it</h3>
-									<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-									ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-									sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-									Curabitur leo nibh, rutrum eu malesuada in tristique</p>
-									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat
-									Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula
-									vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet
-									magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in,
-									tristique Curabitur leo nibh, rutrum eu malesuada in, tristique
-									at erat lorem ipsum dolor sit amet lorem ipsum sed consequat magna
-									tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat
-									magna tempus</p>
-									<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-									ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-									sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-									Curabitur leo nibh, rutrum eu malesuada in tristique</p>
-									<h3>Accumsan lorem ipsum veroeros</h3>
-									<p>Consequat Phasellus laoreet massa id in, tristique at erat lorem
-									ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna.</p>
-									<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-									ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-									sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-									Curabitur leo nibh, rutrum eu malesuada in tristique</p>
-									<h3>Ligula suspcipit fusce veroeros</h3>
-									<p>Nullam dolore etiam sed massa id in, tristique at erat lorem
-									ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna.</p>
-									<p>Sed massa id justo mattis pharetra. Fusce suscipit
-									ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-									sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-									magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-									consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-									justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan.</p>
-								</article>
+							<div class="form-group row pull-right" style="
+    margin-left: 0px;
+    margin-top: 0px;
+    padding-left: 20px;
+">
+				<span style="padding-top: 0px; padding-left: 0px;">
+				<input class="form-control"  name = "proName" id="proName" type="text" size="20"></span>
+			<% request.setCharacterEncoding("EUC-KR"); %>
+				<span style="padding-top: 0px; padding-left: 0px;">
+				<button class="btn btn-primary" onclick="searchFunction();" type="button"style="text-align = center;padding-top: 0px;padding-left: 0px;">검색</button></span>
+		</div>
+	<div class="container">
+		<div class = "box"> 
+		<h1>제품 검색</h1>
+		<table class="selectTable" style="text-align: center; border: 1px solid">
+			<thead>
+				<tr>
+					<th style="text-align: center; width: 150px; border: 1px;">회사명</th>
+					<th style="text-align: center; width: 150px; border: 1px;">제품명</th>
+					<th style="text-align: center; width: 150px; border: 1px;">사진</th>
+				    <th style="text-align: center; width: 150px; border: 1px;">평가</th>
+				</tr>
+			</thead>
+			<tbody id="ajaxTable">
+				
+			</tbody>
+		</table>
+		</div>
+		<div class = "box">
+		<h1>평가 목록</h1>
+		<table class = "memTable" style="text-align: center; border: 1px solid">
+			<thead>
+				<tr>
+					<th style="text-align: center; width: 150px; border: 1px;">제품명</th>
+					<th style="text-align: center; width: 150px; border: 1px;">평가</th>
+				</tr>
+			</thead>
+			<tbody id = "ajaxTable2">
+			
+			</tbody>
+		</table>
+		</div>
+	</div>
 
 						</div>
 					</div>
