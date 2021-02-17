@@ -43,7 +43,7 @@ function searchFunction(){
 		    		data : {proName : id, rating : rat},
 		    		dataType : "json",
 		    		success : function (result){
-/* 		    			alert(result);
+/* 		    			alert(result); 바꿔
  */		    			$('#ajaxTable2').empty();
 						for(let j = 0; j< result.cosmetics.length; j++){
 							let proName = result.cosmetics[j].proname;
