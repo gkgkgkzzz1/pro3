@@ -22,7 +22,7 @@ public class JoinService extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
 		
-		
+		//kljnjk
 		System.out.println(id);
 		
 		memberDTO dto = new memberDTO(id, pw, name, phone, email);
