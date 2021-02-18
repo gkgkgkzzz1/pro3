@@ -190,35 +190,27 @@ table thead {
                <div class="container">
 
                   <!-- Logo -->
-                     <h1 id="logo"><a href="index.html">나의 화장품 사용이력</a></h1>
+                     <h1 id="logo"><a href="index.jsp">나의 화장품 사용이력</a></h1>
                      <p>내가 사용한 화장품 목록을 확인해 보세요.</p>
 
-                  <!-- Nav -->
-                     <nav id="nav">
-                        <ul>
-                           <li><a class="icon solid fa-home" href="index.html"><span>Introduction</span></a></li>
-                           <li>
-                              <a href="#" class="icon fa-chart-bar"><span>Dropdown</span></a>
-                              <ul>
-                                 <li><a href="#">Lorem ipsum dolor</a></li>
-                                 <li><a href="#">Magna phasellus</a></li>
-                                 <li><a href="#">Etiam dolore nisl</a></li>
-                                 <li>
-                                    <a href="#">Phasellus consequat</a>
-                                    <ul>
-                                       <li><a href="#">Magna phasellus</a></li>
-                                       <li><a href="#">Etiam dolore nisl</a></li>
-                                       <li><a href="#">Phasellus consequat</a></li>
-                                    </ul>
-                                 </li>
-                                 <li><a href="#">Veroeros feugiat</a></li>
-                              </ul>
-                           </li>
-                           <li><a class="icon solid fa-cog" href="left-sidebar.html"><span>Left Sidebar</span></a></li>
-                           <li><a class="icon solid fa-retweet" href="right-sidebar.html"><span>Right Sidebar</span></a></li>
-                           <li><a class="icon solid fa-sitemap" href="no-sidebar.html"><span>No Sidebar</span></a></li>
-                        </ul>
-                     </nav>
+                     <!-- Nav -->
+						<nav id="nav">
+							<ul>
+								
+								<li><a class="icon solid fa-home" href="index.jsp"><span>HOME</span></a></li>
+								
+								<li display = hidden>
+									<a href="#" class="icon fa-chart-bar"><span>회원가입/로그인</span></a>
+									<ul>
+										<li><a href="join.jsp">회원가입</a></li>
+										<li><a href="login.jsp">로그인</a></li>
+									</ul>
+								</li>
+								<li><a class="icon solid fa-cog" href="camRecog.jsp"><span>OCR 이용 이미지 인식</span></a></li>
+								<li><a class="icon solid fa-retweet" href="weather.jsp"><span>날씨별 화장품 추천</span></a></li>
+								<li><a class="icon solid fa-sitemap" href="mydata.jsp"><span>나의 사용목록 추가</span></a></li>
+							</ul>
+						</nav>
 
                </div>
             </section>

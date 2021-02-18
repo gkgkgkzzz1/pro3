@@ -34,7 +34,7 @@
 					<div class="container" style = "padding-top: 100px; padding-bottom: 100px;">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Safe Your Skin</a></h1>
+							<h1 id="logo"><a href="index.jsp">Safe Your Skin</a></h1>
 							<p>당신의 피부를 안전하게 지켜주세요</p>
 
 						<!-- Nav -->
