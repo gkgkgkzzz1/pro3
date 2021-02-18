@@ -70,7 +70,7 @@ public class MemHistoryDAO {
 		ArrayList<MemHistoryDTO> array = new ArrayList<MemHistoryDTO>();
 		conn();
 		try {
-			String sql = "SELECT pro_name,rating FROM mem_history WHERE id = ?";
+			String sql = "SELECT pro_name,rating FROM mem_history WHERE id = ? ORDER BY sysdate";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
