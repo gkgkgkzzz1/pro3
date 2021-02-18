@@ -18,58 +18,6 @@
       <script src="assets/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 function searchFunction(){
-   var name = document.getElementById("proName").value;
-   $.ajax({
-      url: "cosSelect.jsp",
-      type : "GET",
-      data : {proName : name},
-      dataType : "json",
-      success : function (res) {
-         /* alert(res)
-         console.log(res) */
-         $('#ajaxTable').empty();
-         for(let i = 0; i < res.cosmetics.length; i++){
-                     
-            let company = res.cosmetics[i].company;
-            let proName = res.cosmetics[i].proname;
-            let img = res.cosmetics[i].img;
-            
-            $('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td ><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'><img src='./images/up.png'></button>\t<button class='BAD' id ='"+proName+"'><img src ='./images/down.png' style='padding-top:13px;'></button></td></tr>");
-         }
-         
-          $("td > button").click(function(){
-             var id = $(this).attr('id');
-             var rat = $(this).attr('class');
-             $.ajax({
-                url : "memHisInsert.jsp",
-                type : "GET",
-                data : {proName : id, rating : rat},
-                dataType : "json",
-                success : function (result){
-/*                    alert(result);
- */                   $('#ajaxTable2').empty();
-                  for(let j = 0; j< result.cosmetics.length; j++){
-                     let proName = result.cosmetics[j].proname;
-                     let rating = result.cosmetics[j].rating;
-                     
-                      $('#ajaxTable2').append("<tr><td>"+proName+"</td><td>"+rating+"</td></tr>");
-                  }
-                },
-                error : function(a,b,c){
-                   alert("fail")
-                   alert(b)
-                   alert(c)
-                }
-             })
-          });
-      },
-      error : function(a,b,c){
-         alert("fail")
-         alert(b)
-         alert(c)
-      }
-   })
-   
 	var name = document.getElementById("proName").value;
 	$.ajax({
 		url: "cosSelect.jsp",
@@ -127,6 +75,38 @@ function searchFunction(){
 	})
 	
 }
+$( document ).ready(function() {
+$("td > button").click(function(){
+	var id = $(this).attr('id');
+	var rat = $(this).attr('class');
+	alert("제품 이름 : "+id+"평가 : " + rat);
+	$.ajax({
+		url : "memHisInsert.jsp",
+		type : "GET",
+		data : {proName : id, rating : rat},
+		dataType : "json",
+		success : function (result){
+/* 		    			alert(result); 바꿔
+*/		    			$('#ajaxTable2').empty();
+			for(let j = 0; j< result.cosmetics.length; j++){
+				let proName = result.cosmetics[j].proname;
+				let rating = result.cosmetics[j].rating;
+				
+				$('#ajaxTable2').append("<tr><td>"+proName+"</td><td>"+rating+"</td></tr>");
+				
+			}
+			var offset = $('.memTable').offset();
+			$('html,body').animate({scrollTop : offset.top}, 400);
+			// 이력 추가시 이력 사용했던 제품이 기록된 테이블로 이동
+		},
+		error : function(a,b,c){
+			alert("fail")
+			alert(b)
+			alert(c)
+		}
+	})
+});
+});
 
 </script>
 <style type="text/css">
@@ -191,11 +171,26 @@ table thead {
 	text-align: center;
 }
 
-
+#upBtn,#upBtnImg{
+			width: 40px ;
+			height: 40px ;
+/* 			background-color: red !important;
+			color: white !important; */
+			position: fixed;
+			right: 5px ;
+			bottom: 50px ;
+			z-index: 50 !important;
+		}
+#upBtn{
+	background: #e5e5e5;
+}
 
 </style>
    </head>
    <body class="no-sidebar is-preload">
+  		 <div id="upBtn">
+			<a href="#header"><img id="upBtnImg" src="./images/up-arrow.png"></a>
+		</div>
       <div id="page-wrapper">
 
          <!-- Header -->
