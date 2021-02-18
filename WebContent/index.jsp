@@ -34,7 +34,7 @@
 					<div class="container" style = "padding-top: 100px; padding-bottom: 100px;">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Safe Your Skin</a></h1>
+							<h1 id="logo"><a href="index.jsp">Safe Your Skin</a></h1>
 							<p>당신의 피부를 안전하게 지켜주세요</p>
 
 						<!-- Nav -->
@@ -60,7 +60,7 @@
 				</section>
 
 			<!-- Features -->
-				<section id="features">
+				<section id="features" class ="backimg">
 					<div class="container">
 						<header>
 							<h2>성분 분석과 날씨추천을 통해 당신의 피부를 지켜요!</h2>
@@ -96,9 +96,9 @@
 							</div>
 					
 							<div class="col-12">
-								<ul class="actions">
-									<li><a href="#" class="button icon solid fa-file">Tell Me More</a></li>
-								</ul>
+								
+									<a href="mydata.jsp" class="button icon solid fa-fil">MY SKIN DATA</a>
+								
 							</div>
 						</div>
 					</div>
