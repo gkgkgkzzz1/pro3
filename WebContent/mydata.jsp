@@ -33,8 +33,9 @@ function searchFunction(){
 				let company = res.cosmetics[i].company;
 				let proName = res.cosmetics[i].proname;
 				let img = res.cosmetics[i].img;
+				let proNum = res.cosmetics[i].proNum;
 				
-				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td ><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'><img src='./images/up.png'></button>\t<button class='BAD' id ='"+proName+"'><img src ='./images/down.png' style='padding-top:13px;'></button></td></tr>");
+				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td ><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proNum+"'><img src='./images/up.png'></button>\t<button class='BAD' id ='"+proNum+"'><img src ='./images/down.png' style='padding-top:13px;'></button></td></tr>");
 			}
 			
 		    $("td > button").click(function(){
@@ -43,7 +44,7 @@ function searchFunction(){
 		    	$.ajax({
 		    		url : "memHisInsert.jsp",
 		    		type : "GET",
-		    		data : {proName : id, rating : rat},
+		    		data : {proNum : id, rating : rat},
 		    		dataType : "json",
 		    		success : function (result){
 /* 		    			alert(result); 바꿔
@@ -78,11 +79,10 @@ $( document ).ready(function() {
 $("td > button").click(function(){
 	var id = $(this).attr('id');
 	var rat = $(this).attr('class');
-	alert("제품 이름 : "+id+"평가 : " + rat);
 	$.ajax({
 		url : "memHisInsert.jsp",
 		type : "GET",
-		data : {proName : id, rating : rat},
+		data : {proNum : id, rating : rat},
 		dataType : "json",
 		success : function (result){
 /* 		    			alert(result); 바꿔
@@ -269,9 +269,9 @@ table thead {
                      	<!-- <img style ="width:40px; height:40px;" src="images/to-do-list.png"> -->
                      	</h1>
                      </div>
-   <%
-   ArrayList<MemHistoryDTO> cosList = (ArrayList)session.getAttribute("cosList");
-   %>
+<%
+	ArrayList<MemHistoryDTO> cosList = (ArrayList)session.getAttribute("cosList");
+%>
    <div class="nuribox">
       <div class = "box"> 
       <br>
@@ -285,12 +285,12 @@ table thead {
             </tr>
          </thead>
          <tbody id="ajaxTable">
-         <%for(int i = 0; i<cosList.size(); i++) {%>
+         <%for(int i = 0; i< cosList.size(); i++) {%>
             <tr>
-               <td><%=cosList.get(i).getCompany() %></th>
-               <td><%=cosList.get(i).getProName() %></th>
-               <td><img class='imgs' src ="images/cosImgs/<%=cosList.get(i).getPath() %>.jpg"></th>
-                <td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='<%=cosList.get(i).getProName() %>'><img src='./images/up.png'></button><button class='BAD' id ='<%=cosList.get(i).getProName() %>'><img src ='./images/down.png' style='padding-top:13px;'></button></th>
+               <td><%=cosList.get(i).getCompany() %></td>
+               <td><%=cosList.get(i).getProName() %></td>
+               <td><img class='imgs' src ="images/cosImgs/<%=cosList.get(i).getPath() %>.jpg"></td>
+               <td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ="<%=cosList.get(i).getProNum() %>"><img src='./images/up.png'></button><button class='BAD' id ="<%=cosList.get(i).getProNum() %>"><img src ='./images/down.png' style='padding-top:13px;'></button></td>
             </tr>
           <%} %>
          </tbody>
