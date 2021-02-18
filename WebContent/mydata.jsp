@@ -1,3 +1,6 @@
+<%@page import="com.model.MemHistoryDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -102,7 +105,11 @@ function searchFunction(){
 							let rating = result.cosmetics[j].rating;
 							
 		    				$('#ajaxTable2').append("<tr><td>"+proName+"</td><td>"+rating+"</td></tr>");
+							
 						}
+						var offset = $('.memTable').offset();
+						$('html,body').animate({scrollTop : offset.top}, 400);
+						// 이력 추가시 이력 사용했던 제품이 기록된 테이블로 이동
 		    		},
 		    		error : function(a,b,c){
 		    			alert("fail")
@@ -130,6 +137,7 @@ width:10rem;
    padding-left: 20px;
    padding-right: 20px;
    border-radius: 50px;
+
 }
 
 td {
@@ -142,6 +150,7 @@ button img {
 }
 tr > td:nth-child(4){
    justify-content: space-around; 
+      display: flex;
 }
 
 #proName {
@@ -176,6 +185,9 @@ button{
 table thead {
    background: #e5e5e5;
    color: black;
+}
+.nuribox{
+	text-align: center;
 }
 
 
@@ -226,6 +238,9 @@ table thead {
                         <span style="padding-top: 0px; padding-left: 0px;">
                         <button class="btn btn-primary" id="proNameBtn" onclick="searchFunction();" type="button"style="text-align = center;padding-top: 0px;padding-left: 0px;"><img src="./images/search.png"></button></span>
                      </div>
+   <%
+   ArrayList<MemHistoryDTO> cosList = (ArrayList)session.getAttribute("cosList");
+   %>
    <div class="nuribox">
       <div class = "box"> 
       <br>
@@ -239,11 +254,23 @@ table thead {
             </tr>
          </thead>
          <tbody id="ajaxTable">
-            
+         <%for(int i = 0; i<cosList.size(); i++) {%>
+            <tr>
+               <td style="text-align: center; width: 150px; border: 1px;"><%=cosList.get(i).getCompany() %></th>
+               <td style="text-align: center; width: 150px; border: 1px;"><%=cosList.get(i).getProName() %></th>
+               <td style="text-align: center; width: 150px; border: 1px;"><img class='imgs' src ="images/cosImgs/<%=cosList.get(i).getPath() %>.jpg"></th>
+                <td style="text-align: center; width: 150px; border: 1px;"><button class='GOOD' id ='<%=cosList.get(i).getProName() %>'><img src='./images/up.png'></button><button class='BAD' id ='<%=cosList.get(i).getProName() %>'><img src ='./images/down.png' style='padding-top:13px;'></button></th>
+            </tr>
+          <%} %>
          </tbody>
       </table>
       </div>
+<% memberDTO dto = (memberDTO)session.getAttribute("list");
+	String name = dto.getName();
+%>
       <div class = "nuribox">
+      <h1><%=name %>님의 이용목록</h1>
+      <br>
       <table class = "memTable" style="text-align: center; border: 1px solid">
          <thead>
             <tr>
@@ -252,7 +279,6 @@ table thead {
             </tr>
          </thead>
          <tbody id = "ajaxTable2">
-         
          </tbody>
       </table>
       </div>
