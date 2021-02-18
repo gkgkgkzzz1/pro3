@@ -1,9 +1,17 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Arvo:700");
-@font-face {
+/* @font-face {
 	font-family: nanumEB;
-	src : url("./NanumSquareRoundEB.ttf");
+	src : url("assets/css/NanumSquareRoundEB.ttf");
+} */
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+
 /*
 	Strongly Typed by HTML5 UP
 	html5up.net | @ajlkn
@@ -34,6 +42,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	font-family : 'GmarketSansMedium';
 }
 
 ol, ul {
@@ -106,7 +115,7 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: 'NanumSquareRoundEB';
+		font-family: 'GmarketSansMedium';
 		font-weight: 300;
 		color: #777;
 		line-height: 1.65em;
@@ -1516,7 +1525,7 @@ input, select, textarea {
 			display: flex;
 			justify-content : center;
 			width: 100%;
-			background-color: ghostwhite;
+			background-color:ghostwhite;
 			margin: 0 0 3.5em 0;
 		}
 
@@ -1806,7 +1815,7 @@ input, select, textarea {
 			top: 0.05em;
 		}
 
-		input[type="button"]:hover,
+/* 		input[type="button"]:hover,
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		button:hover,
@@ -1821,7 +1830,7 @@ input, select, textarea {
 		.button:active {
 			background: #ed786a;
 		}
-
+ */
 		input[type="button"].alt,
 		input[type="submit"].alt,
 		input[type="reset"].alt,
@@ -1884,7 +1893,7 @@ input, select, textarea {
 			text-rendering: auto;
 			line-height: 1;
 			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
+			font-family: 'GmarketSansMedium';
 			font-weight: 400;
 		}
 
@@ -1901,7 +1910,7 @@ input, select, textarea {
 		}
 
 		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands';
+			font-family: 'GmarketSansMedium';
 		}
 
 /* Page Wrapper */
@@ -1926,12 +1935,12 @@ input, select, textarea {
 		}
 
 		#header h1 {
-			font-family: 'Arvo';
+			font-family: 'GmarketSansMedium';
 			font-weight: 700;
 			color: #ed786a;
 			text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
 			font-size: 3em;
-			letter-spacing: 13px;
+			letter-spacing: 4px;
 		}
 
 			#header h1 a {

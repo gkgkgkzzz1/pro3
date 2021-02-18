@@ -16,11 +16,12 @@
 		<style>
 		#img1{
 			display : block;
-			width : 60%;
-			height : 40%;
+			width : 200px;
+			height : 200px;
 			
 		}
-	
+		
+
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -30,10 +31,10 @@
 			<!-- Header -->
 				<section id="header">
 					
-					<div class="container">
+					<div class="container" style = "padding-top: 100px; padding-bottom: 100px;">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Safe Your Skin</a></h1>
+							<h1 id="logo"><a href="index.jsp">Safe Your Skin</a></h1>
 							<p>당신의 피부를 안전하게 지켜주세요</p>
 
 						<!-- Nav -->
@@ -49,9 +50,9 @@
 										<li><a href="login.jsp">로그인</a></li>
 									</ul>
 								</li>
-								<li><a class="icon solid fa-cog" href="left-sidebar.html"><span>OCR 이용 이미지 인식</span></a></li>
+								<li><a class="icon solid fa-cog" href="camRecog.jsp"><span>OCR 이용 이미지 인식</span></a></li>
 								<li><a class="icon solid fa-retweet" href="weather.jsp"><span>날씨별 화장품 추천</span></a></li>
-								<li><a class="icon solid fa-sitemap" href="mydata.jsp"><span>나의 사용목록 추가</span></a></li>
+								<li><a class="icon solid fa-sitemap" href="BefoHis"><span>나의 사용목록 추가</span></a></li>
 							</ul>
 						</nav>
 
@@ -59,7 +60,7 @@
 				</section>
 
 			<!-- Features -->
-				<section id="features">
+				<section id="features" class ="backimg">
 					<div class="container">
 						<header>
 							<h2>성분 분석과 날씨추천을 통해 당신의 피부를 지켜요!</h2>
@@ -83,7 +84,7 @@
 
 								<!-- Feature -->
 									<section>
-										<a href="left-sidebar.html" class="image featured"><img id = img1 src="./images/cam.png" alt="" /></a>
+										<a href="camRecog.jsp" class="image featured"><img id = img1 src="./images/cam.png" alt="" /></a>
 										<header>
 											<h3>이미지로 성분 확인</h3>
 										</header>
@@ -95,9 +96,9 @@
 							</div>
 					
 							<div class="col-12">
-								<ul class="actions">
-									<li><a href="#" class="button icon solid fa-file">Tell Me More</a></li>
-								</ul>
+								
+									<a href="mydata.jsp" class="button icon solid fa-fil">MY SKIN DATA</a>
+								
 							</div>
 						</div>
 					</div>

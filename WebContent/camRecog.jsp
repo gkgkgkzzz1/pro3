@@ -1,3 +1,6 @@
+<%@page import="com.model.memberDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
 	Strongly Typed by HTML5 UP
@@ -99,7 +102,7 @@ String id = member.getId();
 					<div class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html"> Search Ingredient</a></h1>
+							<h1 id="logo"><a href="index.jsp"> Search Ingredient</a></h1>
 							<p>ocr based on Character Recognition</p>
 
 						<!-- Logo -->

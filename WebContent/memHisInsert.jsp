@@ -28,7 +28,8 @@ ArrayList<MemHistoryDTO> array  = dao.HisSelect(id);
  %>
 	{"cosmetics":[
 	<%for(int i = 0; i<array.size(); i++){ %>
-	{"proname":"<%=array.get(i).getProName() %>",
+	{"num" : "<%=i+1 %>",
+	"proname":"<%=array.get(i).getProName() %>",
 	"rating":"<%=array.get(i).getRating() %>"}
 	<%System.out.println(array.get(i).getProName()); %>
 	<% 
