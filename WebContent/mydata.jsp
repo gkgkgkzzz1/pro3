@@ -184,6 +184,13 @@ table thead {
 #upBtn{
 	background: #e5e5e5;
 }
+#moveMemList{
+	padding-top: 0px;
+    padding-left: 0px;
+    align-self: center;
+    border-bottom: none;
+    margin-left: 50px;
+}
 
 </style>
    </head>
@@ -233,6 +240,9 @@ table thead {
                         <% request.setCharacterEncoding("EUC-KR"); %>
                         <span style="padding-top: 0px; padding-left: 0px;">
                         <button class="btn btn-primary" id="proNameBtn" onclick="searchFunction();" type="button"style="text-align = center;padding-top: 0px;padding-left: 0px;"><img src="./images/search.png"></button></span>
+                     	<a id="moveMemList" href="#memList"><h1>나의 이력 보러가기 !
+                     	<!-- <img style ="width:40px; height:40px;" src="images/to-do-list.png"> -->
+                     	</h1></a>
                      </div>
    <%
    ArrayList<MemHistoryDTO> cosList = (ArrayList)session.getAttribute("cosList");
@@ -263,11 +273,13 @@ table thead {
       </div>
 <% memberDTO dto = (memberDTO)session.getAttribute("list");
 	String name = dto.getName();
+	ArrayList<MemHistoryDTO> memHis  = (ArrayList)session.getAttribute("memHis");
+	
 %>
-      <div class = "nuribox">
+      <div class = "nuribox" id="memList">
       <h1><%=name %>님의 이용목록</h1>
       <br>
-      <table class = "memTable" style="text-align: center; border: 1px solid">
+      <table  class = "memTable" style="text-align: center; border: 1px solid">
          <thead>
             <tr>
                <th style="text-align: center; width: 150px; border: 1px;">제품명</th>
@@ -275,6 +287,12 @@ table thead {
             </tr>
          </thead>
          <tbody id = "ajaxTable2">
+         <%for(int i = 0; i<memHis.size(); i++) {%>
+	         <tr>
+		         <td><%=memHis.get(i).getProName() %></td>
+		         <td><%=memHis.get(i).getRating() %></td>
+	         </tr>
+	      <%} %>
          </tbody>
       </table>
       </div>
@@ -286,7 +304,7 @@ table thead {
 
          <!-- Footer -->
             <section id="footer">
-               <div class="container">
+               <!-- <div class="container">
                   <header>
                      <h2>사용했던 화장품 검색</h2>
                   </header>
@@ -303,7 +321,7 @@ table thead {
                                  <input type = "text" list = "search">
                                  <datalist id = "search">
                                  
-                                 <!-- 화장품 검색 탭 if문, for 문 돌려서 찾기 -->
+                                 화장품 검색 탭 if문, for 문 돌려서 찾기
                                  
                                     <option>진식 </option>
                                     <option>요셉 </option>
@@ -342,7 +360,7 @@ table thead {
                         
                      </div>
                   </div>
-               </div>
+               </div> -->
                <div id="copyright" class="container">
                   <ul class="links">
                      <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
