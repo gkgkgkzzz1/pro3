@@ -49,11 +49,10 @@ function searchFunction(){
 /* 		    			alert(result); 바꿔
  */		    			$('#ajaxTable2').empty();
 						for(let j = 0; j< result.cosmetics.length; j++){
+							let num = result.cosmetics[j].num;
 							let proName = result.cosmetics[j].proname;
 							let rating = result.cosmetics[j].rating;
-							
-		    				$('#ajaxTable2').append("<tr><td>"+proName+"</td><td>"+rating+"</td></tr>");
-							
+		    				$('#ajaxTable2').append("<tr><td>"+num+"번</td><td>"+proName+"</td><td>"+rating+"</td></tr>");
 						}
 						var offset = $('.memTable').offset();
 						$('html,body').animate({scrollTop : offset.top}, 400);
@@ -91,8 +90,8 @@ $("td > button").click(function(){
 			for(let j = 0; j< result.cosmetics.length; j++){
 				let proName = result.cosmetics[j].proname;
 				let rating = result.cosmetics[j].rating;
-				
-				$('#ajaxTable2').append("<tr><td>"+proName+"</td><td>"+rating+"</td></tr>");
+				let num = result.cosmetics[j].num;
+				$('#ajaxTable2').append("<tr><td>"+num+"번</td><td>"+proName+"</td><td>"+rating+"</td></tr>");
 				
 			}
 			var offset = $('.memTable').offset();
@@ -282,6 +281,7 @@ table thead {
       <table  class = "memTable" style="text-align: center; border: 1px solid">
          <thead>
             <tr>
+               <th style="text-align: center; width: 150px; border: 1px;">번호</th>
                <th style="text-align: center; width: 150px; border: 1px;">제품명</th>
                <th style="text-align: center; width: 150px; border: 1px;">평가</th>
             </tr>
@@ -289,6 +289,7 @@ table thead {
          <tbody id = "ajaxTable2">
          <%for(int i = 0; i<memHis.size(); i++) {%>
 	         <tr>
+	             <td><%=i+1 %>번</td>
 		         <td><%=memHis.get(i).getProName() %></td>
 		         <td><%=memHis.get(i).getRating() %></td>
 	         </tr>
