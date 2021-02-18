@@ -149,8 +149,9 @@ button img {
    width: 30px;
 }
 tr > td:nth-child(4){
+   display: flex;
+   padding-top: 55px;
    justify-content: space-around; 
-      display: flex;
 }
 
 #proName {
@@ -256,10 +257,10 @@ table thead {
          <tbody id="ajaxTable">
          <%for(int i = 0; i<cosList.size(); i++) {%>
             <tr>
-               <td style="text-align: center; width: 150px; border: 1px;"><%=cosList.get(i).getCompany() %></th>
-               <td style="text-align: center; width: 150px; border: 1px;"><%=cosList.get(i).getProName() %></th>
-               <td style="text-align: center; width: 150px; border: 1px;"><img class='imgs' src ="images/cosImgs/<%=cosList.get(i).getPath() %>.jpg"></th>
-                <td style="text-align: center; width: 150px; border: 1px;"><button class='GOOD' id ='<%=cosList.get(i).getProName() %>'><img src='./images/up.png'></button><button class='BAD' id ='<%=cosList.get(i).getProName() %>'><img src ='./images/down.png' style='padding-top:13px;'></button></th>
+               <td><%=cosList.get(i).getCompany() %></th>
+               <td><%=cosList.get(i).getProName() %></th>
+               <td><img class='imgs' src ="images/cosImgs/<%=cosList.get(i).getPath() %>.jpg"></th>
+                <td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='<%=cosList.get(i).getProName() %>'><img src='./images/up.png'></button><button class='BAD' id ='<%=cosList.get(i).getProName() %>'><img src ='./images/down.png' style='padding-top:13px;'></button></th>
             </tr>
           <%} %>
          </tbody>
