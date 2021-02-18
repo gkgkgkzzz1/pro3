@@ -107,6 +107,32 @@ $("td > button").click(function(){
 });
 });
 
+function moveEvent1() {
+	let move1 = $('#memList').offset();
+	$('html,body').animate({scrollTop : move1.top},400);
+	// 나의 이력 목록으로 이동
+}
+
+function moveEvent2() {
+	let move2 = $('.no-sidebar').offset();
+	$('html,body').animate({scrollTop : move2.top},400);
+	// 맨 위로 가기
+	
+}
+$('document').ready(function () {
+	$('#upBtn').hide();
+	$(function(){
+		$(window).scroll(function(){
+			if($(this).scrollTop() >100){
+				$('#upBtn').fadeIn();
+			} else{
+				$('#upBtn').fadeOut();
+			}
+		})
+	})
+	
+	// 위로가는 버튼 제일 윗 페이지에서는 숨기고 아래로 스크롤 할수록 보이게 하기.
+})
 </script>
 <style type="text/css">
 .imgs{
@@ -194,8 +220,8 @@ table thead {
 </style>
    </head>
    <body class="no-sidebar is-preload">
-  		 <div id="upBtn">
-			<a href="#header"><img id="upBtnImg" src="./images/up-arrow.png"></a>
+  		 <div id="upBtn" onclick="moveEvent2()" >
+			<img id="upBtnImg"  src="./images/up-arrow.png">
 		</div>
       <div id="page-wrapper">
 
@@ -235,13 +261,13 @@ table thead {
                   <div id="content">
                      <div class="form-group row pull-right" id="searchGroup" >
                         <span style="padding-top: 0px; padding-left: 0px;">
-                        <input class="form-control"  name = "proName" id="proName" onkeyup="searchFunction()" type="text" size="20"></span>
+                        <input class="form-control" placeholder="제품 이름을 입력해 주세요!" name = "proName" id="proName"type="text" size="20"></span>
                         <% request.setCharacterEncoding("EUC-KR"); %>
                         <span style="padding-top: 0px; padding-left: 0px;">
                         <button class="btn btn-primary" id="proNameBtn" onclick="searchFunction();" type="button"style="text-align = center;padding-top: 0px;padding-left: 0px;"><img src="./images/search.png"></button></span>
-                     	<a id="moveMemList" href="#memList"><h1>나의 이력 보러가기 !
+                     	<h1 id="moveMemList" onclick="moveEvent1()">나의 이력 보러가기 !
                      	<!-- <img style ="width:40px; height:40px;" src="images/to-do-list.png"> -->
-                     	</h1></a>
+                     	</h1>
                      </div>
    <%
    ArrayList<MemHistoryDTO> cosList = (ArrayList)session.getAttribute("cosList");
