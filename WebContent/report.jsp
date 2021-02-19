@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+ <%@page import="com.model.MemHistoryDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.memberDTO"%>
 <!DOCTYPE HTML>
 <!--
 	Strongly Typed by HTML5 UP
@@ -19,8 +25,8 @@
 					<div class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html"></a>Report Your Allergy</h1>
-							<p>민감한 피부의 당신을 위한 알러지 제보!</p>
+							<h1 id="logo"><a href="index.html"></a></h1>
+							<p>A responsive HTML5 site template. Manufactured by HTML5 UP.</p>
 							
 							
 			

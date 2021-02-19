@@ -104,7 +104,7 @@ String id = member.getId();
 
 						<!-- Logo -->
 							<h1 id="logo"><a href="index.jsp"> Search Ingredient</a></h1>
-							<p>ocr based on Character Recognition</p>
+							<p >카메라를 이용한 성분 확인</p>
 
 						<!-- Logo -->
 										
