@@ -28,24 +28,24 @@
 
 						<!-- Nav -->
 						
-							<nav id="nav">
-								<ul>
-									
-									<li><a class="icon solid fa-home" href="index.html"><span>HOME</span></a></li>
-									<li>
-										<a href="#" class="icon fa-chart-bar"><span>회원가입/로그인</span></a>
-										<ul>
-											<li><a href="#">회원가입</a></li>
-											<li><a href="#">로그인</a></li>
-											<li><a href="#">나의 사용목록 추가</a></li>
-											
-										</ul>
-									</li>
-									<li><a class="icon solid fa-cog" href="left-sidebar.html"><span>OCR 이용 이미지 인식</span></a></li>
-									<li><a class="icon solid fa-retweet" href="right-sidebar.html"><span>날씨별 화장품 추천</span></a></li>
-									<li><a class="icon solid fa-sitemap" href="no-sidebar.html"><span>나의 사용목록 추가</span></a></li>
-								</ul>
-							</nav>
+							<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								
+								<li><a class="icon solid fa-home" href="index.jsp"><span>HOME</span></a></li>
+								
+								<li display = hidden>
+									<a href="#" class="icon fa-chart-bar"><span>회원가입/로그인</span></a>
+									<ul>
+										<li><a href="join.jsp">회원가입</a></li>
+										<li><a href="login.jsp">로그인</a></li>
+									</ul>
+								</li>
+								<li><a class="icon solid fa-cog" href="camRecog.jsp"><span>OCR 이용 이미지 인식</span></a></li>
+								<li><a class="icon solid fa-retweet" href="weather.jsp"><span>날씨별 화장품 추천</span></a></li>
+								<li><a class="icon solid fa-sitemap" href="BefoHis"><span>나의 사용목록 추가</span></a></li>
+							</ul>
+						</nav>
 
 					</div>
 				</section>
