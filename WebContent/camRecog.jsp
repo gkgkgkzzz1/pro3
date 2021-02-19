@@ -35,10 +35,11 @@
         }
 
         #camera, #camera--view, #camera--sensor, #camera--output{
-            position: sticky;
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
+            position: inherit;
+            height: 167.5px;
+            width: 355px;
+            object-fit: contain;
+
         }
 
         #camera--view, #camera--sensor, #camera--output{
@@ -64,7 +65,6 @@
         .taken {
             height: 280px!important;
             width: 560px!important;
-            border: solid 2px rgb(121, 200, 253);
         }
         
         #buttons{
@@ -83,6 +83,7 @@
  			-webkit-transform:rotateY(0deg); /* Safari and Chrome */         
  			-moz-transform:rotateY(180deg); /* Firefox */
  			/* 사진을 거울처럼 보기 */
+ 			position : contain;
  		}
 
     </style>
@@ -245,33 +246,53 @@ String id = member.getId();
 									<!-- Post -->
 										<article class="box post">
 											<header1 align = "center">
-												<h2 >카메라를 이용해 성분을 분석해주세요
-													카메라 나오는 위치랑 레이아웃 .... ㅠㅠ
+												<h2 >촬영을 통해 성분을 분석하고 적합하지 않은 성분을 찾아요.
 												</h2>
-											</header>
+											</header1>
 											
-											<div>
+											<div     style ="padding-left: 150px;"
+											>
 
-    <main id="camera" >
-        
-        
-        <canvas id="camera--sensor"></canvas>
+										    <main id="camera" >
+										        
+										        
+										        <canvas id="camera--sensor"></canvas>
+										
+										        <!-- 기기의 카메라에 접근하여 영상을 페이지에 재생한다. -->
+										        <video id="camera--view" autoplay playsinline style ="
 
-        <!-- 기기의 카메라에 접근하여 영상을 페이지에 재생한다. -->
-        <video id="camera--view" autoplay playsinline></video>
-        
-        <img src="./images/cam.png" alt="" id="camera--output">
-        <!-- 고라파덕 부분에 카메라 이미지 넣어서 찍는거 조절하기... img 크기 조절도 해야해 -->
-
-        
-
-    </main>
+    visibility: hidden;
+    width: 0;
+    height: 0;
+"></video>
+										        
+										        <img src="./images/cam.png" alt="" id="camera--output" style="
+    position: absolute;
     
+">
+										        <!-- 고라파덕 부분에 카메라 이미지 넣어서 찍는거 조절하기... img 크기 조절도 해야해 -->
+										
+										        
+										
+										    </main>
+										    
     
     
     
     
 										</div>
+										
+										
+										
+										
+											</span>
+											
+										</article>
+										<div style =" width : 150px; height : 150px;">
+											
+										
+										</div>
+										
 										<div id = "buttons">
 										 
 											<form action="http://118.40.82.69:9000/imgUp" method="post" enctype="multipart/form-data">
@@ -283,71 +304,6 @@ String id = member.getId();
 										</div>
 											
 											<p> </p>
-											</span>
-											<h3>Left is the opposite of right</h3>
-											<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-											ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-											sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-											in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-											magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-											mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-											Curabitur leo nibh, rutrum eu malesuada in tristique</p>
-											<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat
-											Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula
-											vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet
-											magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in,
-											tristique at erat. Curabitur leo nibh, rutrum eu malesuada in, tristique
-											at erat lorem ipsum dolor sit amet lorem ipsum sed consequat magna
-											tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat
-											magna tempus</p>
-											<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-											ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-											sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-											in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-											magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-											mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-											Curabitur leo nibh, rutrum eu malesuada in tristique</p>
-											<h3>Accumsan lorem ipsum veroeros</h3>
-											<p>Consequat Phasellus laoreet massa id in, tristique at erat lorem
-											ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-											mollis tortor congue. Sed quis mauris sit amet magna.</p>
-											<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-											ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-											sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-											in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-											magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-											mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-											Curabitur leo nibh, rutrum eu malesuada in tristique</p>
-											<h3>Ligula suspcipit fusce veroeros</h3>
-											<p>Nullam dolore etiam sed massa id in, tristique at erat lorem
-											ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-											mollis tortor congue. Sed quis mauris sit amet magna.</p>
-											<p>Sed massa id justo mattis pharetra. Fusce suscipit
-											ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-											sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-											in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-											magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-											mollis tortor congue. Sed quis mauris sit amet magna accumsan.</p>
-										</article>
-
 								</div>
 
 						</div>
@@ -464,8 +420,9 @@ String id = member.getId();
             $("#inputUrl").val(imgUrl);
             // alert(imgUrl); imgUrl 이 잘 전달되는지 확인했음 잘 전달됨 
             cameraOutput.classList.add("taken");
-            
             console.log(cameraSensor.height);
+          
+            $("#camera--output").css("padding-right","160px");
         });
        /*  function imgSend(){
         	$.ajax({

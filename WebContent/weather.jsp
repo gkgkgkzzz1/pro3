@@ -24,7 +24,12 @@
 <script src="weatherapi.js"></script>
 <script src="https://kit.fontawesome.com/096073a2a8.js"
 	crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	function visible() {
+		$('#sidbarSection').css("visibility","visible");
+	}
+</script>
 </head>
 <style>
 .image.featured {
@@ -101,6 +106,10 @@ h2 {
 #sidebar {
 	padding-top: 30px;
 }
+#sidbarSection{
+	visibility: hidden;
+}
+
 </style>
 <body class="homepage is-preload">
 
@@ -145,21 +154,7 @@ h2 {
 		<!-- Banner -->
 		<section id="banner">
 			<div class="container">
-				<!-- <section class='weather-container'>
-        <div class='weather-data'>
-            <h1 class='location'><class class = 'fas fa-city'></h1>
-        </div>
-        <div class='weather-temp'>
-            <div class='current-temp'></div>
-            <div class='icon'>날씨</div>
-            <div class='feels-like'>체감온도</div>
-            <div class='max-temp'>최고기온</div>
-            <div class='min-temp'>최저기온</div>
-            <div class='humidity'></div>
-            <div class='cloud'>운량</div>
-        </div>
-        <div class='#'>미세먼지</div>
-            </section> -->
+
 				<section class='weather-container'>
 					<table>
 
@@ -167,10 +162,12 @@ h2 {
 							<tr>
 								<th class="one">도시온도</th>
 								<th class="one">날씨</th>
-								<th class="one">최고/최저 기온</th>
+								<th class="one">기온</th>
 								<th class="one">체감온도</th>
 								<th class="one">습도</th>
 								<th class="one">운량</th>
+								<th class="one">미세먼지</th>
+								<th class="one">자외선</th>
 							</tr>
 						</thead>
 
@@ -239,24 +236,134 @@ h2 {
 							<!-- <ul class="divided">
                                     <li></li>
                                  </ul> -->
+<<<<<<< HEAD
+=======
+							<br>
+>>>>>>> branch 'master' of https://github.com/gkgkgkzzz1/pro3.git
 							<h3>현재</h3>
+<<<<<<< HEAD
 							<p>피부 온도는 __ 하네요</p>
+=======
+							<%-- <% if 습도 > 39 {
+								console("건조"); 
+							}%> <%else if 60>=습도>=40 {
+								console("쾌적")
+							}%> <%else {
+								console("다습")
+							}%> --%>
+
+							<%-- <% if 자외선수치 > ? {
+								console("주의"); 
+							}%> <%else if ?>=습도>=? {
+								console("보통")
+							}%> <%else {
+								console("위험")
+							}%> --%>
+
+>>>>>>> branch 'master' of https://github.com/gkgkgkzzz1/pro3.git
 							<p>피부 수분은 역시 __ 하니 알맞게 관리해주세요</p>
 							<p>자외선 수치는 (낮음/보통/높음/매우높음/위험) 입니다</p>
 							<p>미세먼지 수치는 __ 입니다</p>
-							<ul class="actions">
-								<li><a href="#" class="button icon solid fa-file">Continue
+							<ul class="actions" onclick="visible()">
+								<li><a class="button icon solid fa-fil">Continue
 										Reading</a></li>
 							</ul>
 						</article>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						
+						<section>
+							<ul class="divided">
+								<li>
+						<form action="" name="frm">
+							
+							<div align="center">
+							
+								<article class="box excerpt">
+									<header>
+										<span class="date">Suncream Timer</span>
+									</header>
+									
+								</article>
+								<li>
+								<select id="selid" name="myChoice">
+									<option value="7200">원하는 시간을 선택해주십시오(기본: 2시간)</option>
+									<option value="10800">3시간</option>
+									<option value="3600">1시간</option>
+									<option value="1800">30분</option>
+									<option value="900">15분</option>
+								</select><br> <input type="button" value="GO!" onclick="noodle()">
+								<br>
+								<br> <span id="countdown">time selected</span> <br>
+								<br> <input type="button" value="Close"
+									onclick='window.close()'>
+							</div>
+						</li>
+						</form>
+						<script type="text/javascript">
+	var count = 0;
+	var time = 0;
+	var choice = 0;
+	
+	function noodle() {
+		
+		clearInterval(time);	// 타이머 우선 초기화 시켜주기(time initialize)
+	/* 
+	 
+	 	ID로 가져오기
+		// select의 value를 가져오기 : value
+		var val = document.getElementById("selid").value;
+		alert(val);	// 확인용
+		// select의 index값을 가져오기 : selectedIndex
+		var indexNum = document.getElementById("selid").selectedIndex;
+		alert(indexNum);	// 확인용
+	 */
+	 
+	 
+	// 	name으로 index 찾기
+	 	choice = document.frm.myChoice.selectedIndex;
+	//	alert(choice);
+	 
+	 	// 찾은 index로 value찾기
+	 	count = parseInt(document.frm.myChoice.options[choice].value);
+//		alert(count); 
+		
+		// 타이머 함수 1초씩 호출하는 함수 만들기
+		time = setInterval("myTimer()",1000);
+		
+	}
+	function myTimer() {
+		count = count - 1; // 타이머 선택 숫자에서 -1씩 감산함(갱신되기 때문)
+		
+		document.getElementById("countdown").innerHTML
+			= "완료까지 <b>" + count +"</b>초 남았습니다.";
+		if(count == 0) { 
+			clearInterval(time);	// 시간 초기화
+			alert("시간이 완료되었습니다. 썬크림을 다시 발라주세요")
+		}
+	}
+	
+	//우클릭 사용금지
+	document.oncontextmenu = function() {
+		alert("마우스의 우클릭은 사용할 수 없습니다.")
+		return false;
+	}
+	</script>
 
 					</div>
+
+
 
 					<!-- Sidebar -->
 					<div id="sidebar" class="col-4 col-12-medium">
 
 						<!-- Excerpts -->
-						<section>
+						<section id="sidbarSection">
 							<ul class="divided">
 								<li>
 									<!-- Excerpt -->
@@ -394,6 +501,28 @@ h2 {
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<script>
+	var time = 600; //기준시간 작성
+	var min = ""; //분
+	var sec = ""; //초
+
+	//setInterval(함수, 시간) : 주기적인 실행
+	var x = setInterval(function() {
+		//parseInt() : 정수를 반환
+		min = parseInt(time/60); //몫을 계산
+		sec = time%60; //나머지를 계산
+
+		document.getElementById("demo").innerHTML = min + "분" + sec + "초";
+		time--;
+
+		//타임아웃 시
+		if (time < 0) {
+			clearInterval(x); //setInterval() 실행을 끝냄
+			document.getElementById("demo").innerHTML = "시간초과";
+		}
+	}, 1000);
+</script>
 
 </body>
 </html>
