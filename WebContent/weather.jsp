@@ -1,4 +1,3 @@
-<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -20,7 +19,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>api 테스트입니다</title>
+<title>api 테스트</title>
 
 <script src="weatherapi.js"></script>
 <script src="https://kit.fontawesome.com/096073a2a8.js"
@@ -240,24 +239,7 @@ h2 {
 							<!-- <ul class="divided">
                                     <li></li>
                                  </ul> -->
-                                 <br>
 							<h3>현재</h3>
-							<%-- <% if 습도 > 39 {
-								console("건조"); 
-							}%> <%else if 60>=습도>=40 {
-								console("쾌적")
-							}%> <%else {
-								console("다습")
-							}%> --%>
-							
-							<%-- <% if 자외선수치 > ? {
-								console("주의"); 
-							}%> <%else if ?>=습도>=? {
-								console("보통")
-							}%> <%else {
-								console("위험")
-							}%> --%>
-							
 							<p>피부 온도는 __ 하네요</p>
 							<p>피부 수분은 역시 __ 하니 알맞게 관리해주세요</p>
 							<p>자외선 수치는 (낮음/보통/높음/매우높음/위험) 입니다</p>
@@ -286,7 +268,7 @@ h2 {
 											</h3>
 										</header>
 										<a href="#" class="image featured"><img
-											src="images/water2.jpg" alt="" /></a>
+											src="images/water.jpg" alt="" /></a>
 										<p>세부설명</p>
 									</article>
 

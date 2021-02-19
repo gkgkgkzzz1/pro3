@@ -52,7 +52,7 @@
 								</li>
 								<li><a class="icon solid fa-cog" href="camRecog.jsp"><span>OCR 이용 이미지 인식</span></a></li>
 								<li><a class="icon solid fa-retweet" href="weather.jsp"><span>날씨별 화장품 추천</span></a></li>
-								<li><a class="icon solid fa-sitemap" href="BefoHis"><span>나의 사용목록 추가</span></a></li>
+								<li><a class="icon solid fa-sitemap" href="mydata.jsp"><span>나의 사용목록 추가</span></a></li>
 							</ul>
 						</nav>
 
@@ -63,7 +63,8 @@
 				<section id="features" class ="backimg">
 					<div class="container">
 						<header>
-							<h2>성분 분석과 날씨추천을 통해 당신의 피부를 지켜요!</h2>
+							<h2 style="font-size:1.5em;">성분 분석과 날씨추천을 통해 당신의 피부를 지켜요!</h2>
+							<br>
 						</header>
 						<div class="row aln-center">
 							<div class="col-4 col-6-medium col-12-small">
@@ -71,12 +72,10 @@
 								<!-- Feature -->
 									<section>
 										<a href="weather.jsp" class="image featured"><img id = img1 src="./images/weather.png" alt="" /></a>
-										<header>
-											<h3>온,습도 구분 바르는 정도 추천</h3>
-										</header>
-										<p>This is <strong>Strongly Typed</strong>, a free, fully responsive site template
-										by <a href="http://html5up.net">HTML5 UP</a>. Free for personal and commercial use under the
-										<a href="http://html5up.net/license">CCA 3.0 license</a>.</p>
+									 	<header>
+											<h3>오늘 날씨에 맞는 화장품을 추천!</h3>
+										</header> 
+										<p>현재 온도, 자외선, 미세먼지, 습도 등을 확인하고 외출 전 날씨에 맞는 화장품을 추천해드려요!</p>
 									</section>
 
 							</div>
@@ -86,20 +85,14 @@
 									<section>
 										<a href="camRecog.jsp" class="image featured"><img id = img1 src="./images/cam.png" alt="" /></a>
 										<header>
-											<h3>이미지로 성분 확인</h3>
+											<h3>카메라를 이용한 화장품 성분 분석!</h3>
 										</header>
-										<p><a href="http://html5up.net">HTML5 UP</a> is a side project of <a href="http://twitter.com/ajlkn">AJ’s</a> (= me).
-										I started it as a way to both test my responsive tools and sharpen up my coding
-										and design skills a bit.</p>
+										<p>촬영을 통해 화장품의 성분을 확인하고 자신에게 적합하지 않은 성분을 찾아내 알려주고 추천을 통해 구매에 도움을 드려요! </p>
 									</section>
 
 							</div>
 					
-							<div class="col-12">
-								
-									<a href="mydata.jsp" class="button icon solid fa-fil">MY SKIN DATA</a>
-								
-							</div>
+						
 						</div>
 					</div>
 				</section>
