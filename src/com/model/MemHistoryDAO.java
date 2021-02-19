@@ -103,7 +103,7 @@ public class MemHistoryDAO {
 			String sql = "SELECT pro_num,pro_name,company, path FROM cosmetics WHERE pro_name LIKE ? order by pro_name";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%"+proName+"%");
-			System.out.println("hello");
+			
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				String company = rs.getString("company");

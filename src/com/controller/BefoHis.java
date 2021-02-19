@@ -34,7 +34,7 @@ public class BefoHis extends HttpServlet {
 		// 拳厘前 格废 技记俊 历厘
 		session.setAttribute("cosList", cosArray);
 		
-		// response.sendRedirect("mydata.jsp");
+		response.sendRedirect("mydata.jsp");
 		
 	
 	}
