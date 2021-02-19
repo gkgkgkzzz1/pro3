@@ -249,6 +249,7 @@ String id = member.getId();
 												<h2 >촬영을 통해 성분을 분석하고 적합하지 않은 성분을 찾아요.
 												</h2>
 											</header1>
+											<br>
 											
 											<div     style ="padding-left: 150px;"
 											>

@@ -31,7 +31,7 @@
 			<!-- Header -->
 				<section id="header">
 					
-					<div class="container" style = "padding-top: 100px; padding-bottom: 100px;">
+					<div class="container" >
 
 						<!-- Logo -->
 							<h1 id="logo"><a href="index.jsp">Safe Your Skin</a></h1>
