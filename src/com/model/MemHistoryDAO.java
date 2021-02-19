@@ -52,7 +52,7 @@ public class MemHistoryDAO {
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
-			psmt.setString(2, dto.getProName());
+			psmt.setString(2, dto.getProNum());
 			psmt.setString(3, dto.getRating());
 			cnt = psmt.executeUpdate();
 			
@@ -70,7 +70,7 @@ public class MemHistoryDAO {
 		ArrayList<MemHistoryDTO> array = new ArrayList<MemHistoryDTO>();
 		conn();
 		try {
-			String sql = "SELECT pro_name,rating FROM mem_history WHERE id = ? ORDER BY sysdate";
+			String sql = "SELECT c.pro_name pro_name,h.rating, c.pro_num FROM cosmetics c, mem_history h WHERE c.pro_num = h.pro_num AND id = ? ORDER BY sysdate";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -78,8 +78,10 @@ public class MemHistoryDAO {
 			
 			while(rs.next()) {
 				String proName = rs.getString("pro_name");
+//				System.out.println("dao에 들어오는 제품 이름"+proName);  잘 출력됨 제품이름을 잘 가지고 오는것
 				String rating = rs.getString("rating");
-				MemHistoryDTO dto = new MemHistoryDTO(proName, rating);
+				String proNum = rs.getString("pro_num");
+				MemHistoryDTO dto = new MemHistoryDTO(proName, rating, proNum);
 				array.add(dto);
 			}
 		
@@ -98,7 +100,7 @@ public class MemHistoryDAO {
 		ArrayList<MemHistoryDTO> array = new ArrayList<MemHistoryDTO>();
 		conn();
 		try {
-			String sql = "SELECT DISTINCT (pro_name),company, path FROM cosmetics WHERE pro_name LIKE ? order by pro_name";
+			String sql = "SELECT pro_num,pro_name,company, path FROM cosmetics WHERE pro_name LIKE ? order by pro_name";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%"+proName+"%");
 			rs = psmt.executeQuery();
@@ -106,8 +108,9 @@ public class MemHistoryDAO {
 				String company = rs.getString("company");
 				String pro_name = rs.getString("pro_name");
 				String path = rs.getString("path");
+				String proNum = rs.getString("pro_num");
 				
-				MemHistoryDTO dto = new MemHistoryDTO(company, pro_name, path);
+				MemHistoryDTO dto = new MemHistoryDTO(company, pro_name, path, proNum);
 				array.add(dto);
 				
 			}

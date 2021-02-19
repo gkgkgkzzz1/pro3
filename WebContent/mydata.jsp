@@ -33,8 +33,9 @@ function searchFunction(){
 				let company = res.cosmetics[i].company;
 				let proName = res.cosmetics[i].proname;
 				let img = res.cosmetics[i].img;
+				let proNum = res.cosmetics[i].proNum;
 				
-				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td ><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proName+"'><img src='./images/up.png'></button>\t<button class='BAD' id ='"+proName+"'><img src ='./images/down.png' style='padding-top:13px;'></button></td></tr>");
+				$('#ajaxTable').append("<tr><td>"+company+"</td><td>"+proName+"</td><td ><img class='imgs' src='"+img+".jpg'></td><td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='"+proNum+"'><img src='./images/up.png'></button>\t<button class='BAD' id ='"+proNum+"'><img src ='./images/down.png' style='padding-top:13px;'></button></td></tr>");
 			}
 			
 		    $("td > button").click(function(){
@@ -43,7 +44,7 @@ function searchFunction(){
 		    	$.ajax({
 		    		url : "memHisInsert.jsp",
 		    		type : "GET",
-		    		data : {proName : id, rating : rat},
+		    		data : {proNum : id, rating : rat},
 		    		dataType : "json",
 		    		success : function (result){
 /* 		    			alert(result); 바꿔
@@ -78,11 +79,10 @@ $( document ).ready(function() {
 $("td > button").click(function(){
 	var id = $(this).attr('id');
 	var rat = $(this).attr('class');
-	alert("제품 이름 : "+id+"평가 : " + rat);
 	$.ajax({
 		url : "memHisInsert.jsp",
 		type : "GET",
-		data : {proName : id, rating : rat},
+		data : {proNum : id, rating : rat},
 		dataType : "json",
 		success : function (result){
 /* 		    			alert(result); 바꿔
@@ -107,6 +107,32 @@ $("td > button").click(function(){
 });
 });
 
+function moveEvent1() {
+	let move1 = $('#memList').offset();
+	$('html,body').animate({scrollTop : move1.top},400);
+	// 나의 이력 목록으로 이동
+}
+
+function moveEvent2() {
+	let move2 = $('.no-sidebar').offset();
+	$('html,body').animate({scrollTop : move2.top},400);
+	// 맨 위로 가기
+	
+}
+$('document').ready(function () {
+	$('#upBtn').hide();
+	$(function(){
+		$(window).scroll(function(){
+			if($(this).scrollTop() >100){
+				$('#upBtn').fadeIn();
+			} else{
+				$('#upBtn').fadeOut();
+			}
+		})
+	})
+	
+	// 위로가는 버튼 제일 윗 페이지에서는 숨기고 아래로 스크롤 할수록 보이게 하기.
+})
 </script>
 <style type="text/css">
 .imgs{
@@ -194,8 +220,8 @@ table thead {
 </style>
    </head>
    <body class="no-sidebar is-preload">
-  		 <div id="upBtn">
-			<a href="#header"><img id="upBtnImg" src="./images/up-arrow.png"></a>
+  		 <div id="upBtn" onclick="moveEvent2()" >
+			<img id="upBtnImg"  src="./images/up-arrow.png">
 		</div>
       <div id="page-wrapper">
 
@@ -235,17 +261,17 @@ table thead {
                   <div id="content">
                      <div class="form-group row pull-right" id="searchGroup" >
                         <span style="padding-top: 0px; padding-left: 0px;">
-                        <input class="form-control"  name = "proName" id="proName" onkeyup="searchFunction()" type="text" size="20"></span>
+                        <input class="form-control" placeholder="제품 이름을 입력해 주세요!" name = "proName" id="proName"type="text" size="20"></span>
                         <% request.setCharacterEncoding("EUC-KR"); %>
                         <span style="padding-top: 0px; padding-left: 0px;">
                         <button class="btn btn-primary" id="proNameBtn" onclick="searchFunction();" type="button"style="text-align = center;padding-top: 0px;padding-left: 0px;"><img src="./images/search.png"></button></span>
-                     	<a id="moveMemList" href="#memList"><h1>나의 이력 보러가기 !
+                     	<h1 id="moveMemList" onclick="moveEvent1()">나의 이력 보러가기 !
                      	<!-- <img style ="width:40px; height:40px;" src="images/to-do-list.png"> -->
-                     	</h1></a>
+                     	</h1>
                      </div>
-   <%
-   ArrayList<MemHistoryDTO> cosList = (ArrayList)session.getAttribute("cosList");
-   %>
+<%
+	ArrayList<MemHistoryDTO> cosList = (ArrayList)session.getAttribute("cosList");
+%>
    <div class="nuribox">
       <div class = "box"> 
       <br>
@@ -259,12 +285,12 @@ table thead {
             </tr>
          </thead>
          <tbody id="ajaxTable">
-         <%for(int i = 0; i<cosList.size(); i++) {%>
+         <%for(int i = 0; i< cosList.size(); i++) {%>
             <tr>
-               <td><%=cosList.get(i).getCompany() %></th>
-               <td><%=cosList.get(i).getProName() %></th>
-               <td><img class='imgs' src ="images/cosImgs/<%=cosList.get(i).getPath() %>.jpg"></th>
-                <td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ='<%=cosList.get(i).getProName() %>'><img src='./images/up.png'></button><button class='BAD' id ='<%=cosList.get(i).getProName() %>'><img src ='./images/down.png' style='padding-top:13px;'></button></th>
+               <td><%=cosList.get(i).getCompany() %></td>
+               <td><%=cosList.get(i).getProName() %></td>
+               <td><img class='imgs' src ="images/cosImgs/<%=cosList.get(i).getPath() %>.jpg"></td>
+               <td style ='display:flex;padding-top: 60px;'><button class='GOOD' id ="<%=cosList.get(i).getProNum() %>"><img src='./images/up.png'></button><button class='BAD' id ="<%=cosList.get(i).getProNum() %>"><img src ='./images/down.png' style='padding-top:13px;'></button></td>
             </tr>
           <%} %>
          </tbody>

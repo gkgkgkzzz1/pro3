@@ -15,6 +15,7 @@ ArrayList<MemHistoryDTO> array = dao.CosSelect(proName);
 	<%for(int i = 0; i<array.size(); i++){ %>
 	{"company":"<%=array.get(i).getCompany() %>",
 	"proname":"<%=array.get(i).getProName() %>",
+	"proNum" :"<%=array.get(i).getProNum() %>",
 	"img":"images/cosImgs/<%=array.get(i).getPath() %>"}
 	
 	<% 

@@ -12,10 +12,11 @@ request.setCharacterEncoding("utf-8");
 response.setContentType("application/json;charset=utf-8");
 
 // 제품의 이름과 평가 결과를 가져옴
-String proName = request.getParameter("proName");
+String proNum = request.getParameter("proNum");
 String rating = request.getParameter("rating");
 
-MemHistoryDTO dto = new MemHistoryDTO(proName,rating);
+
+MemHistoryDTO dto = new MemHistoryDTO(proNum,rating);
 MemHistoryDAO dao = new MemHistoryDAO();
 
 // 회원 이력 등록
@@ -31,7 +32,6 @@ ArrayList<MemHistoryDTO> array  = dao.HisSelect(id);
 	{"num" : "<%=i+1 %>",
 	"proname":"<%=array.get(i).getProName() %>",
 	"rating":"<%=array.get(i).getRating() %>"}
-	<%System.out.println(array.get(i).getProName()); %>
 	<% 
 		if(i!=array.size()-1){
 	%>

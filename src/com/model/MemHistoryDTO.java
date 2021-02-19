@@ -6,23 +6,49 @@ public class MemHistoryDTO {
 	private String proName;
 	private String rating;
 	private String path;
+	private String proNum;
 	
 	// 이력을 남기기 위한 DTO
-	public MemHistoryDTO(String proName, String rating) {
+	public MemHistoryDTO(String proNum, String rating) {
 		super();
-		this.proName = proName;
+		this.proNum = proNum;
 		this.rating = rating;
 	}
 	
+	
+	
 	// 화장품 조회를 위한 DTO
-	public MemHistoryDTO(String company, String proName, String path) {
+//	public MemHistoryDTO(String company, String proName, String path) {
+//		super();
+//		this.company = company;
+//		this.proName = proName;
+//		this.path = path;
+//	}
+	
+	// 화장품 조회를 위한 DTO
+	public MemHistoryDTO(String company, String proName, String path, String proNum) {
 		super();
 		this.company = company;
 		this.proName = proName;
 		this.path = path;
+		this.proNum = proNum;
+	}
+	// 회원 이력 조회를 위한 DTO
+	public MemHistoryDTO(String proName, String rating, String proNum) {
+		super();
+		this.proName = proName;
+		this.rating = rating;
+		this.proNum = proNum;
 	}
 
 
+	public String getProNum() {
+		return proNum;
+	}
+
+	public void setProNum(String proNum) {
+		this.proNum = proNum;
+	}
 
 	public String getCompany() {
 		return company;
