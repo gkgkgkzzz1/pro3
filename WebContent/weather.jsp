@@ -25,7 +25,12 @@
 <script src="weatherapi.js"></script>
 <script src="https://kit.fontawesome.com/096073a2a8.js"
 	crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	function visible() {
+		$('#sidbarSection').css("visibility","visible");
+	}
+</script>
 </head>
 <style>
 .image.featured {
@@ -102,6 +107,10 @@ h2 {
 #sidebar {
 	padding-top: 30px;
 }
+#sidbarSection{
+	visibility: hidden;
+}
+
 </style>
 <body class="homepage is-preload">
 
@@ -249,8 +258,8 @@ h2 {
 							<p>피부 수분은 역시 __ 하니 알맞게 관리해주세요</p>
 							<p>자외선 수치는 (낮음/보통/높음/매우높음/위험) 입니다</p>
 							<p>미세먼지 수치는 __ 입니다</p>
-							<ul class="actions">
-								<li><a href="#" class="button icon solid fa-file">Continue
+							<ul class="actions" onclick="visible()">
+								<li><a class="button icon solid fa-fil">Continue
 										Reading</a></li>
 							</ul>
 						</article>
@@ -348,7 +357,7 @@ h2 {
 					<div id="sidebar" class="col-4 col-12-medium">
 
 						<!-- Excerpts -->
-						<section>
+						<section id="sidbarSection">
 							<ul class="divided">
 								<li>
 									<!-- Excerpt -->
