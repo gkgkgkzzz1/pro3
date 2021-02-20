@@ -70,7 +70,8 @@
 
 								<!-- Feature -->
 									<section>
-										<a href="weather.jsp" class="image featured"><img id = img1 src="./images/weather.png" alt="" /></a>
+										<a href="mise" class="image featured"><img id = img1 src="./images/weather.png" alt="" /></a>
+										
 										<header>
 											<h3>온,습도 구분 바르는 정도 추천</h3>
 										</header>
