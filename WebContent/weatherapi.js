@@ -70,6 +70,7 @@ function loadWeather(data) {
 
     //currentTime.append(`${month}월 ${day}일`);
 	 
+	 
 	if(`${data.main.humidity}`< 40){
         $(".yoseph").append("<p>피부 수분은 <span style='color:#FFF000 ; font-weight:bold;'>건조</span> 합니다.</p><br>");	
     } 
