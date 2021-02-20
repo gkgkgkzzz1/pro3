@@ -89,19 +89,19 @@ function loadWeather(data) {
     if(`${data.main.humidity}`< 40){
         $(".yoseph2").append("<header><span class='date'>히알루론 모이스춰 수분크림</span></header>");
         $(".yoseph2").append("<a href='#' class='image featured'><img src='images/dry1.jpg'></a>")
-        $(".yoseph2").append("<p> # <br> # <br> # <br> # </p>")
+        $(".yoseph2").append("<p> #수분케어 <br> #끈적임 없는 사용감 <br> #피부윤기 <br> #페이스&바디 겸용 </p>")
     } 
 	 
 	else if(`${data.main.humidity}`<= 60){
         $(".yoseph2").append("<header><span class='date'>닥터지 레드 블레미쉬 클리어 수딩 크림</span></header>");	
         $(".yoseph2").append("<a href='#' class='image featured'><img src='images/good1.jpg'></a>")
-        $(".yoseph2").append("<p> # <br> # <br> # <br> # </p>")
+        $(".yoseph2").append("<p> #피부진정 <br> #수분충전 <br> #촉촉한 젤 크림 <br> #여드름성 피부 사용 가능 </p>")
     }
       
     else{
         $(".yoseph2").append("<header><span class='date'>HD 퍼펙트 파우더 팩트</span></header>");
         $(".yoseph2").append("<a href='#' class='image featured'><img src='images/wet3.png'></a>")
-        $(".yoseph2").append("<p> # <br> # <br> # <br> # </p>")	
+        $(".yoseph2").append("<p> #완벽한 커버력 <br> #우수한 피지 조절 성능 <br> #매끈한 밀착력 <br> #고운입자로 피부 화사함 </p>")	
     }
     
     
@@ -109,19 +109,19 @@ function loadWeather(data) {
     if(`${data.main.humidity}`< 40){
         $(".yoseph3").append("<header><span class='date'>워터퓨즈 하이드로 듀 드랍</span></header>");	
         $(".yoseph3").append("<a href='#' class='image featured'><img src='images/dry2.jpg'></a>")
-        $(".yoseph3").append("<p> # <br> # <br> # <br> # </p>")
+        $(".yoseph3").append("<p> #유수분 밸런스 <br> #수분보관 <br> #크리스탈 수분방울 <br> #빠른 흡수 </p>")
     } 
 	 
 	else if(`${data.main.humidity}`<= 60){
         $(".yoseph3").append("<header><span class='date'>프리 울트라 모이스쳐라이징 로션</span></header>");
         $(".yoseph3").append("<a href='#' class='image featured'><img src='images/good2.jpg'></a>")
-        $(".yoseph3").append("<p> # <br> # <br> # <br> # </p>")	
+        $(".yoseph3").append("<p> #피부진정 <br> #민감성피부 <br> #보습로션 <br> #만능로션 </p>")	
     }
       
     else{
         $(".yoseph3").append("<header><span class='date'>플랑크톤 피부강화 에센스 로션</span></header>");	
         $(".yoseph3").append("<a href='#' class='image featured'><img src='images/wet2.jpg'></a>")
-        $(".yoseph3").append("<p> # <br> # <br> # <br> # </p>")
+        $(".yoseph3").append("<p> #피부 스트레스 완화 <br> #저자극 <br> #밝은 피부톤 <br> #피부 장벽 강화 </p>")
     }
 };
 
