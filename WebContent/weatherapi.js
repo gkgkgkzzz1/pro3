@@ -43,11 +43,11 @@ navigator.geolocation.getCurrentPosition(function(pos) {
 
 function loadWeather(data) {
     let location = document.querySelector('.location');
-    /*let currentTime = document.querySelector('.current-time');
-    let currentTemp = document.querySelector('.current-temp');*/
+    let currentTime = document.querySelector('.current-time');
+    let currentTemp = document.querySelector('.current-temp');
     let feelsLike = document.querySelector('.feels-like');
-    let minTemp = document.querySelector('.min-temp');
-    let maxTemp = document.querySelector('.max-temp');
+    /*let minTemp = document.querySelector('.min-temp');
+    let maxTemp = document.querySelector('.max-temp');*/
     let icon2 = document.querySelector('.icon2');
     let weatherIcon = data.weather[0].icon;
     let humidity = document.querySelector('.humidity');
@@ -60,10 +60,10 @@ function loadWeather(data) {
     let minutes = date.getMinutes();
 
     location.append(data.name);
-    /*currentTemp.append(`${data.main.temp}도`);*/
+    currentTemp.append(`${data.main.temp}`);
     feelsLike.append(`${data.main.feels_like}`);
-    maxTemp.append(`최고: ${data.main.temp_max}`);
-    minTemp.append(`최저: ${data.main.temp_min}`);
+    /*maxTemp.append(`최고: ${data.main.temp_max}`);
+    minTemp.append(`최저: ${data.main.temp_min}`);*/
     humidity.append(`${data.main.humidity}%`);
     cloud.append(`${data.clouds.all}%`)
     icon2.innerHTML = `<img src='http://openweathermap.org/img/wn/${weatherIcon}.png'>`

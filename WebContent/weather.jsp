@@ -82,7 +82,8 @@ h2 {
 #banner {
 	position: relative;
 	overflow: hidden;
-	background: #F6CEF5; /* 연다홍 #F5A9A9 */ /* 연보라 #D5C2EE */
+	background-image: url( "images/sunny.jpg" );
+	/* background: #F6CEF5; */ /* 연다홍 #F5A9A9 */ /* 연보라 #D5C2EE */
 	color: #fff;
 	text-align: center;
 	border-top: solid 2px #e5e5e5;
@@ -90,19 +91,32 @@ h2 {
 	box-shadow: inset 0px -8px 0px 0px #fff, inset 0px 8px 0px 0px #fff;
 	position: relative;
 	text-transform: uppercase;
-	/* background: url("../../images/banner.jpg"); */
 	background-size: cover;
 	padding: 10em 0;
+}
+.weather-container {
+		padding: 30px;
+        text-align: center;
+        background-color: #ffffff;
+        background-color: rgba( 255, 255, 255, 0.9 );
+        
+        /* opacity: 0.5; 글씨를 까맣게 하려면 이것을 쓰면 배경과 같이 하얗게 되서 안됨. rgba를 써야함*/
+}
+.location{
+	text-align: center;
+	color:black;
 }
 
 .one {
 	text-align: center;
-	font-size: 60%;
+    font-size: 60%;	
+	color:black;
 }
 
 .two {
 	text-align: center;
-	font-size: 60%;
+	font-size: 80%;
+	color:black;
 }
 
 .container {
@@ -134,6 +148,18 @@ h2 {
 .excerpt {
 	margin: 0 0 0 0;
 }
+
+table thead {
+			background: cornsilk;
+			color: #fff;
+			font-weight: 900;
+			text-transform: uppercase;
+			border: 0;
+			box-shadow: 0.125em 0.175em 0 0 rgba(0, 0, 0, 0.125);
+			font-size: 1.2em;
+			letter-spacing: 2px;
+		}
+
 </style>
 <body class="homepage is-preload">
 	<!-- mise 서블릿 가져왔음. -->
@@ -187,7 +213,7 @@ h2 {
 				<section class='weather-container'>
 					<table>
 
-						<thead>
+						<thead class="thead">
 							<tr>
 								<th class="one">도시</th>
 								<th class="one">날씨</th>
@@ -207,7 +233,6 @@ h2 {
 								<td class="two">
 									<div class='weather-data'>
 										<h1 class='location'>
-											<class class='fas fa-city'>
 										</h1>
 									</div>
 									<div class='weather-temp'></div>
@@ -217,12 +242,15 @@ h2 {
 								<td class="two">
 									<!-- 기상아이콘이 테이블 안에 넣어지지 않는 오류 해결 => weatherapi.js 의 icon 태그와 다른 icon 태그가 겺쳐서 일어나는 문제로서
 								weatherapi.js 에 있는 icon의 이름을 바꿔줌으로서 해결 -->
+								
 									<div class='icon2'></div>
 								</td>
-								<!-- 최고/최저 기온 -->
+								<!-- 기온 -->
 								<td class="two">
-									<div class='max-temp'></div>
-									<div class='min-temp'></div>
+									<div class="current-temp"></div>
+									<!-- 최고/최저 기온 나타내고 싶을 때 이것과 js 내용 활성화 하면 사용가능
+									 <div class='max-temp'></div>
+									<div class='min-temp'></div> -->
 								</td>
 								<!-- 체감온도 -->
 								<td class="two">
@@ -509,7 +537,7 @@ h2 {
 		</section>
 
 		<!-- Footer -->
-		<section id="footer">
+		<!-- <section id="footer">
 			<div class="container">
 				<header>
 					<h2>
@@ -580,7 +608,13 @@ h2 {
 				</ul>
 			</div>
 		</section>
-	</div>
+	</div> -->
+	
+	<div id="copyright" class="container">
+				<ul class="links">
+					<li>© Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
