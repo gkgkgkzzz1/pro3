@@ -291,7 +291,7 @@ h2 {
 										} else if (Integer.parseInt(uvlist.get(2)) <= 5) {
 									%>
 									<p>
-										자외선 수치는 <span style="color: #FFF000; font-weight: bold;">보통</span>
+										자외선 수치는 <span style="color: #339933; font-weight: bold;">보통</span>
 										입니다
 									</p>
 									<%
