@@ -1,3 +1,4 @@
+<%@page import="com.model.ReportDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -16,6 +17,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="assets/js/jquery-3.5.1.min.js"></script>
 	</head>
 	<body class="right-sidebar is-preload">
 		<div id="page-wrapper">
@@ -71,9 +73,8 @@
 
 									<!-- Post -->
 										<article class="box post">
-										<% memberDTO dto = (memberDTO)session.getAttribute("list");
+<% memberDTO dto = (memberDTO)session.getAttribute("list");
 	String name = dto.getName();
-	ArrayList<MemHistoryDTO> memHis  = (ArrayList)session.getAttribute("memHis");
 	
 %>
 											<div class = "nuribox" id="memList">
@@ -82,24 +83,85 @@
 											
       <h1><%=name %>님의 이용목록</h1>
       <br>
-      <table  class = "memTable" style="text-align: center; border: 1px solid">
+      <table  class = "badTable" style="text-align: center; border: 1px solid">
          <thead>
             <tr>
                <th style="text-align: center; width: 150px; border: 1px;">번호</th>
+               <th style="text-align: center; width: 150px; border: 1px;">회사</th>
                <th style="text-align: center; width: 150px; border: 1px;">제품명</th>
-               <th style="text-align: center; width: 150px; border: 1px;">평가</th>
+               <th style="text-align: center; width: 150px; border: 1px;">증상</th>
+               <th style="text-align: center; width: 150px; border: 1px;">제보</th>
+               
             </tr>
          </thead>
-         <tbody id = "ajaxTable2">
-         <%for(int i = 0; i<memHis.size(); i++) {%>
+         <tbody id = "ajaxTable">
+         <%ArrayList<ReportDTO> badArray = (ArrayList)session.getAttribute("badList"); %>
+         <%for(int i = 0; i < badArray.size(); i++) {%>
 	         <tr>
 	             <td><%=i+1 %>번</td>
-		         <td><%=memHis.get(i).getProName() %></td>
-		         <td><%=memHis.get(i).getRating() %></td>
+		         <td class="company va<%= i %>"><%=badArray.get(i).getCompany() %></td>
+		         <td class="proName va<%= i %>"><%=badArray.get(i).getProName() %></td>
+		         <td>
+		         	<select id="insertAller" name="mySelect" class="va<%= i %>">
+		         	
+		         		<option hidden>==선택==</option>
+		         		<option value="발진">발진</option>
+		         		<option value="두드러기">두드러기</option>
+		         		<option value="눈충혈">눈충혈</option>
+		         		<option value="가려움">가려움</option>
+		         		<option value="홍반">홍반</option>
+		         	</select>
+		         </td>
+		         <td class="hello" onclick="hello(<%= i %>)">제보</td>
+		         
+		        	
 	         </tr>
 	      <%} %>
          </tbody>
-      </table>
+        </table>
+        
+        <script type="text/javascript">
+        	function hello(i){
+        		console.log(i + "클릭");
+        		var value = $('.va'+i);
+        		for(var i = 0; i < value.length - 1; i++ ){
+        			console.log(value[i].innerHTML);
+        		}
+        		console.log(value[value.length - 1].value);
+        		
+        	}
+        
+        
+        </script>
+        
+        
+        
+        
+     	 <br>
+         <h1><%=name %>님의 알러지 제보 목록</h1>
+         <br>
+         <table  class = "badTable" style="text-align: center; border: 1px solid">
+         <thead>
+            <tr>
+            
+               <th style="text-align: center; width: 150px; border: 1px;">번호</th>
+               <th style="text-align: center; width: 150px; border: 1px;">회사</th>
+               <th style="text-align: center; width: 150px; border: 1px;">제품명</th>
+               <th style="text-align: center; width: 150px; border: 1px;">증상</th>
+            </tr>
+         </thead>
+         <tbody id = "ajaxTable2">
+         <%ArrayList<ReportDTO> alArray = (ArrayList)session.getAttribute("allerList"); %>
+         <%for(int i = 0; i < alArray.size(); i++) {%>
+	         <tr>
+	             <td><%=i+1 %>번</td>
+		         <td><%=alArray.get(i).getCompany() %></td>
+		         <td><%=alArray.get(i).getProName() %></td>
+		         <td><%=alArray.get(i).getSymptom() %></td>
+	         </tr>
+	      <%} %>
+         </tbody>
+        </table>
       </div>
 										
 										
