@@ -126,6 +126,7 @@
         		var value = $('.va'+i);
         		for(var i = 0; i < value.length - 1; i++ ){
         			console.log(value[i].innerHTML);
+        			
         		}
         		console.log(value[value.length - 1].value);
         		
