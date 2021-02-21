@@ -22,8 +22,10 @@ navigator.geolocation.getCurrentPosition(function(pos) {
      latitude = pos.coords.latitude;
      longitude = pos.coords.longitude;
     
+    /* 설명 : 현재 위치가 어디인지 위도 경도가 떠서 확인하는 alert 창으로 생략가능
     alert(typeof latitude);
-    alert("현재 위치는 : " + latitude + ", "+ longitude);
+    alert("현재 위치는 : " + latitude + ", "+ longitude);*/
+    
     getJSON(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=cd104f67661c1eedfe693e2da3745f82&units=metric`,
     function(err, data) {
         // null 값이 아니면 err
@@ -41,12 +43,12 @@ navigator.geolocation.getCurrentPosition(function(pos) {
 
 function loadWeather(data) {
     let location = document.querySelector('.location');
-    /*let currentTime = document.querySelector('.current-time');
-    let currentTemp = document.querySelector('.current-temp');*/
+    let currentTime = document.querySelector('.current-time');
+    let currentTemp = document.querySelector('.current-temp');
     let feelsLike = document.querySelector('.feels-like');
-    let minTemp = document.querySelector('.min-temp');
-    let maxTemp = document.querySelector('.max-temp');
-    let icon = document.querySelector('.icon');
+    /*let minTemp = document.querySelector('.min-temp');
+    let maxTemp = document.querySelector('.max-temp');*/
+    let icon2 = document.querySelector('.icon2');
     let weatherIcon = data.weather[0].icon;
     let humidity = document.querySelector('.humidity');
     let cloud = document.querySelector('.cloud');
@@ -58,13 +60,69 @@ function loadWeather(data) {
     let minutes = date.getMinutes();
 
     location.append(data.name);
-    /*currentTemp.append(`${data.main.temp}도`);*/
-    feelsLike.append(`최감온도:${data.main.feels_like}도`);
-    maxTemp.append(`최고온도:${data.main.temp_max}도`);
-    minTemp.append(`최저온도:${data.main.temp_min}도`);
-    humidity.append(`습도: ${data.main.humidity}%`);
-    cloud.append(`구름양: ${data.clouds.all}%`)
-    icon.innerHTML = `<img src='http://openweathermap.org/img/wn/${weatherIcon}.png'>`
+    currentTemp.append(`${data.main.temp}`);
+    feelsLike.append(`${data.main.feels_like}`);
+    /*maxTemp.append(`최고: ${data.main.temp_max}`);
+    minTemp.append(`최저: ${data.main.temp_min}`);*/
+    humidity.append(`${data.main.humidity}%`);
+    cloud.append(`${data.clouds.all}%`)
+    icon2.innerHTML = `<img src='http://openweathermap.org/img/wn/${weatherIcon}.png'>`
 
     //currentTime.append(`${month}월 ${day}일`);
-}
+	 
+	 
+	if(`${data.main.humidity}`< 40){
+        $(".yoseph").append("<p>피부 수분은 <span style='color:#FFF000 ; font-weight:bold;'>건조</span> 합니다.</p><br>");	
+    } 
+	 
+	else if(`${data.main.humidity}`<= 60){
+        $(".yoseph").append("<p>피부 수분은 <span style='color:green ; font-weight:bold;'>쾌적</span> 합니다.<br></p>");	
+    }
+      
+    else{
+        $(".yoseph").append("<p>피부 수분은 <span style='color:blue ; font-weight:bold;'>다습</span> 합니다.<br></p>");	
+    }
+    
+    
+    
+    
+    if(`${data.main.humidity}`< 40){
+        $(".yoseph2").append("<header><span class='date'>히알루론 모이스춰 수분크림</span></header>");
+        $(".yoseph2").append("<a href='#' class='image featured'><img src='images/dry1.jpg'></a>")
+        $(".yoseph2").append("<p> #수분케어 <br> #끈적임 없는 사용감 <br> #피부윤기 <br> #페이스&바디 겸용 </p>")
+    } 
+	 
+	else if(`${data.main.humidity}`<= 60){
+        $(".yoseph2").append("<header><span class='date'>닥터지 레드 블레미쉬 클리어 수딩 크림</span></header>");	
+        $(".yoseph2").append("<a href='#' class='image featured'><img src='images/good1.jpg'></a>")
+        $(".yoseph2").append("<p> #피부진정 <br> #수분충전 <br> #촉촉한 젤 크림 <br> #여드름성 피부 사용 가능 </p>")
+    }
+      
+    else{
+        $(".yoseph2").append("<header><span class='date'>HD 퍼펙트 파우더 팩트</span></header>");
+        $(".yoseph2").append("<a href='#' class='image featured'><img src='images/wet3.png'></a>")
+        $(".yoseph2").append("<p> #완벽한 커버력 <br> #우수한 피지 조절 성능 <br> #매끈한 밀착력 <br> #고운입자로 피부 화사함 </p>")	
+    }
+    
+    
+    
+    if(`${data.main.humidity}`< 40){
+        $(".yoseph3").append("<header><span class='date'>워터퓨즈 하이드로 듀 드랍</span></header>");	
+        $(".yoseph3").append("<a href='#' class='image featured'><img src='images/dry2.jpg'></a>")
+        $(".yoseph3").append("<p> #유수분 밸런스 <br> #수분보관 <br> #크리스탈 수분방울 <br> #빠른 흡수 </p>")
+    } 
+	 
+	else if(`${data.main.humidity}`<= 60){
+        $(".yoseph3").append("<header><span class='date'>프리 울트라 모이스쳐라이징 로션</span></header>");
+        $(".yoseph3").append("<a href='#' class='image featured'><img src='images/good2.jpg'></a>")
+        $(".yoseph3").append("<p> #피부진정 <br> #민감성피부 <br> #보습로션 <br> #만능로션 </p>")	
+    }
+      
+    else{
+        $(".yoseph3").append("<header><span class='date'>플랑크톤 피부강화 에센스 로션</span></header>");	
+        $(".yoseph3").append("<a href='#' class='image featured'><img src='images/wet2.jpg'></a>")
+        $(".yoseph3").append("<p> #피부 스트레스 완화 <br> #저자극 <br> #밝은 피부톤 <br> #피부 장벽 강화 </p>")
+    }
+};
+
+

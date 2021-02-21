@@ -23,7 +23,7 @@
 					<div class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.jsp">SKIN CARE</a></h1>
+							<h1 id="logo"><a href="index.html">SKIN CARE</a></h1>
 							<p>당신의 피부를 안전하게 지켜주세요</p>
 
 						<!-- Nav -->
