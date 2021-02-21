@@ -38,10 +38,9 @@ public class mise extends HttpServlet {
       
       session.setAttribute("mise", miselist);
       
-      response.sendRedirect("aaa.jsp");
+      response.sendRedirect("weather.jsp");
       
-      
-      
+           
    }
 
 }

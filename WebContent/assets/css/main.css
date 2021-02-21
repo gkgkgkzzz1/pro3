@@ -257,7 +257,7 @@ input, select, textarea {
 				width: calc(100% - 40px);
 			}
 
-		}
+		} 
 
 /* Row */
 
@@ -1952,7 +1952,7 @@ input, select, textarea {
 			font-weight: 400;
 			color: #888;
 			margin: 2.5em 0 0 0;
-			font-size: 1.2em;
+			font-size: 0.85em;
 			letter-spacing: 3px;
 			text-align: center;
 		}
@@ -2368,7 +2368,7 @@ input, select, textarea {
 		/* Header */
 
 			#header > .container {
-				padding: 8em 0 5em 0;
+				padding: 10em 0 7em 0;
 			}
 
 		/* Nav */
